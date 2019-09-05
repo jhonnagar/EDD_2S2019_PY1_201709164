@@ -2,9 +2,20 @@
 //
 
 #include <iostream>
+#include"lista.h"
+
 
 int main()
 {
+	lista hola;
+	hola.agregarinicio(4);
+	hola.agregarinicio(3);
+	hola.agregarinicio(2);
+	hola.agregarinicio(5);
+	hola.agregarinicio(4);
+	hola.eliminar(2);
+	hola.agregarinicio(8);
+	hola.mostrar();
     std::cout << "Hello World!\n";
 }
 

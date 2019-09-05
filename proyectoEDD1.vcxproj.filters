@@ -18,12 +18,18 @@
     <ClCompile Include="proyectoEDD1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="nodo.cpp">
+    <ClCompile Include="lista.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="nodo.h">
+    <ClInclude Include="lista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

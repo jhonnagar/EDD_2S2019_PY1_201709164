@@ -151,11 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="nodo.cpp" />
+    <ClCompile Include="lista.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="proyectoEDD1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="nodo.h" />
+    <ClInclude Include="lista.h" />
+    <ClInclude Include="Matrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
