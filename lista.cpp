@@ -8,7 +8,7 @@ lista::lista() {
 	fin = NULL;
 }
 
-void lista::agregarinicio(int adddata){
+void lista::agregarinicio(Matrix adddata){
 	nodoptr n = new nodo;
 	n->siguiente = NULL;
 	n->data = adddata;
@@ -23,25 +23,13 @@ void lista::agregarinicio(int adddata){
 	}
 
 }
-void lista::eliminar(int data) {
-	temp = cabeza;
-	while (temp->siguiente->data ==data) {
-		temp = temp->siguiente;
-	}
-	if (temp->siguiente->data = data) {
-		temp->siguiente = temp->siguiente->siguiente;
-	}
-	else
-	{
-		cout << "no hay nada";
-	}
-		
-	}
+	
 void lista::mostrar() {
 	temp = cabeza;
 	while (temp!=NULL) {
-		cout << temp->data << endl;
+		temp->data.mostrar();
 		temp = temp->siguiente;
+		cout << "////////////"<<endl;
 	}
 }
 

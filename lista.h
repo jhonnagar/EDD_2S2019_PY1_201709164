@@ -1,11 +1,11 @@
 #pragma once
-
+#include"Matrix.h"
 class lista
 
 {
 private:
 	typedef struct nodo {
-		int data;
+		Matrix data;
 		nodo* siguiente;
 	}*nodoptr;
 
@@ -15,8 +15,7 @@ private:
 public:
 	lista();
 
-	void agregarinicio(int adddata);
-	void eliminar(int data );
+	void agregarinicio(Matrix adddata);
 	void mostrar();
 };
 

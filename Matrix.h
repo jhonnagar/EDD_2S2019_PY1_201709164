@@ -6,18 +6,31 @@ private:
 		int rojo;
 		int verde;
 		int azul;
+		int x;
+		int y;
 		nodo* arri;
 		nodo* aba;
 		nodo* izqu;
 		nodo* der;
-	}* nodoptr;
+	}*nodoptr;
 
 	nodoptr cabeza;
 	nodoptr finder;
 	nodoptr finaba;
-	nodoptr temp;
 public: 
+	nodoptr tempy;
+	nodoptr tempx;
 	Matrix();
+
+	void nuevacolumna();
+
+	void nuevafila();
+
+	void mostrar();
+
+	void colocarnodo(int rojo, int red, int azul, int x, int y);
+
+
 
 };
 

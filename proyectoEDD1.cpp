@@ -3,20 +3,29 @@
 
 #include <iostream>
 #include"lista.h"
+#include"Matrix.h"
 
 
 int main()
 {
-	lista hola;
-	hola.agregarinicio(4);
-	hola.agregarinicio(3);
-	hola.agregarinicio(2);
-	hola.agregarinicio(5);
-	hola.agregarinicio(4);
-	hola.eliminar(2);
-	hola.agregarinicio(8);
-	hola.mostrar();
-    std::cout << "Hello World!\n";
+	lista list;
+	Matrix hola;
+
+	hola.nuevafila();
+	hola.nuevacolumna();
+	hola.nuevafila();
+	hola.nuevacolumna();
+	hola.colocarnodo(110,200,300,1,1);
+	hola.colocarnodo(110, 200, 300, 1, 2);
+	hola.colocarnodo(110, 200, 300, 2, 1);
+	hola.colocarnodo(110, 200, 300, 2, 2);
+	list.agregarinicio(hola);
+	Matrix hol;
+	hol.nuevafila();
+	hol.nuevacolumna();
+	list.agregarinicio(hol);
+	list.mostrar();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
