@@ -81,13 +81,13 @@ void Matrix:: mostrar()
 	tempy = cabeza;
 	tempx = cabeza;
 	
-	while (tempx != NULL) {
-		tempy = tempx;
-		while (tempy != NULL) {
-		cout << tempy->x<<","<<tempy->y << endl;
-		tempy = tempy->aba;
-	}
+	while (tempy != NULL) {
+		tempx = tempy;
+		while (tempx != NULL) {
+		cout << tempx->x<<","<<tempx->y <<" ";
 		tempx = tempx->der;
+	}
+		tempy = tempy->aba;
 		cout <<  "---------" << endl;
 	
 	}

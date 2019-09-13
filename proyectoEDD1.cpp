@@ -9,7 +9,7 @@
 #include <sstream>
 #include <string>
 using namespace std;
-Matrix lectura(std::string ruta);
+Matrix lectura(std::string ruta,int x,int y);
 int main()
 
 {	
@@ -34,65 +34,99 @@ int main()
 		list.mostrar();
 	}
 	
-	string hola = "prueba.csv";
-	Matrix mat = lectura(hola);
+	string hola = "carro\\prueba.csv";
+	Matrix mat = lectura(hola,4,3);
 	list.agregarinicio(mat);
 	list.mostrar();
 
 }
-Matrix lectura(std::string ruta)
+Matrix lectura(std::string ruta, int x, int y)
 {
-	Matrix mat;
-	mat.nuevafila();
-	mat.nuevacolumna();
+
 	ifstream archivo;
 	string texto;
+	string linea;
+	Matrix mat;
+	for (int i=0; i < x; i++) {
+		mat.nuevacolumna();
+	}
+	for (int i=0; i < y; i++) {
+		mat.nuevafila();
+	}
+	//empieza a leer el archivo --------
 	archivo.open(ruta, ios::in);
 
 	if (archivo.fail())
 
 	{
 		cout << "no hay archivo";
-		
+		return mat;
 	}
-	while (!archivo.eof())
-	{
-	
-		
-			getline(archivo, texto, ',');
-		
-		if (strstr(texto.c_str(), "x")) {
-			
+
+		for (int yi = 1; yi <= y; yi++) {
+			//se para por lineas el archivo 
+			getline(archivo, linea, '\n');
+			std::istringstream lin(linea);
+			cout << linea << endl;
+			for (int xi = 1; xi <= x; xi++) {
+
+				// separa por comoas cada linea 
+				getline(lin, texto, ',');
+				cout << texto << endl;
+				if (strstr(texto.c_str(), "x")) {
+				
+				}
+				else
+				{
+					//separa por - cada espacio que tiene numeros 
+					std::istringstream ss(texto);
+
+					string color;
+					getline(ss, color, '-');
+					int red;
+					int green;
+					int blue;
+					std::istringstream rojo(color);
+					rojo >> red;
+
+					getline(ss, color, '-');
+					std::istringstream verde(color);
+					verde >> green;
+
+					getline(ss, color,'\n');
+					std::istringstream azul(color);
+					azul >> blue;
+
+					mat.colocarnodo(red, green, blue, xi, yi);
+				
+				}
+
+			}
+
 		}
-		else 
-		{
-			std::istringstream ss(texto);
-		
-			string color;
-			getline(ss, color, '-');
-			int number;
-			std::istringstream rojo(color);
-			rojo >> number;
-			cout << number<< endl;
-		
-			getline(ss, color, '-');
-			std::istringstream verde(color);
-			verde >> number;
-			cout << number << endl;
-
-			getline(ss, color, '-');
-			std::istringstream azul(color);
-			azul >> number;
-			cout << number << endl;
-		}	
-
-		
-
-	}
+	
 	archivo.close();
 	return mat;
 }
+lista llenarlista(std::string ruta) {
+	lista list;	
 
+	ifstream archivo;
+	string texto;
+	archivo.open(ruta, ios::in);
+	if (archivo.fail())
+	{
+		cout << "no hay archivo";
+	}
+	while (!archivo.eof()) {
+		getline(archivo, texto, ',');
+		if (strstr(texto.c_str(), "x")) {
+
+		}
+		getline(archivo, texto, '\n');
+	}
+	return list;
+};
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
