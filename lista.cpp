@@ -18,15 +18,26 @@ void lista::agregarinicio(Matrix adddata){
 	}
 	else
 	{
-		n->siguiente = cabeza;
-		cabeza = n;
+		fin->siguiente = n;
+		fin = n;
 	}
 
+}
+void lista::config(int ancho, int alto, int px, int py) {
+	nodoptr n = new nodo;
+	n->siguiente = NULL;
+	n->alto = alto;
+	n->ancho = ancho;
+	n->pixelx = px;
+	n->pixely = py;
+    cabeza=n;
+	fin = n;
 }
 	
 void lista::mostrar() {
 	temp = cabeza;
 	while (temp!=NULL) {
+
 		temp->data.mostrar();
 		temp = temp->siguiente;
 		cout << "////////////"<<endl;

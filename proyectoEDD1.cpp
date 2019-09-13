@@ -4,28 +4,93 @@
 #include <iostream>
 #include"lista.h"
 #include"Matrix.h"
-
-
+#include<stdlib.h>
+#include<fstream>
+#include <sstream>
+#include <string>
+using namespace std;
+Matrix lectura(std::string ruta);
 int main()
-{
-	lista list;
-	Matrix hola;
 
-	hola.nuevafila();
-	hola.nuevacolumna();
-	hola.nuevafila();
-	hola.nuevacolumna();
-	hola.colocarnodo(110,200,300,1,1);
-	hola.colocarnodo(110, 200, 300, 1, 2);
-	hola.colocarnodo(110, 200, 300, 2, 1);
-	hola.colocarnodo(110, 200, 300, 2, 2);
-	list.agregarinicio(hola);
-	Matrix hol;
-	hol.nuevafila();
-	hol.nuevacolumna();
-	list.agregarinicio(hol);
+{	
+	lista list;
+	if (false) {
+	
+		list.config(1, 2, 3, 4);
+		for (int i = 0; i < 3; ++i) {
+			Matrix hola;
+
+			hola.nuevafila();
+			hola.nuevacolumna();
+			
+			if (i == 1) {
+				hola.nuevafila();
+			hola.nuevacolumna();
+				hola.colocarnodo(110, 200, 300, 1, 1);
+			}
+			list.agregarinicio(hola);
+		}
+
+		list.mostrar();
+	}
+	
+	string hola = "prueba.csv";
+	Matrix mat = lectura(hola);
+	list.agregarinicio(mat);
 	list.mostrar();
 
+}
+Matrix lectura(std::string ruta)
+{
+	Matrix mat;
+	mat.nuevafila();
+	mat.nuevacolumna();
+	ifstream archivo;
+	string texto;
+	archivo.open(ruta, ios::in);
+
+	if (archivo.fail())
+
+	{
+		cout << "no hay archivo";
+		
+	}
+	while (!archivo.eof())
+	{
+	
+		
+			getline(archivo, texto, ',');
+		
+		if (strstr(texto.c_str(), "x")) {
+			
+		}
+		else 
+		{
+			std::istringstream ss(texto);
+		
+			string color;
+			getline(ss, color, '-');
+			int number;
+			std::istringstream rojo(color);
+			rojo >> number;
+			cout << number<< endl;
+		
+			getline(ss, color, '-');
+			std::istringstream verde(color);
+			verde >> number;
+			cout << number << endl;
+
+			getline(ss, color, '-');
+			std::istringstream azul(color);
+			azul >> number;
+			cout << number << endl;
+		}	
+
+		
+
+	}
+	archivo.close();
+	return mat;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

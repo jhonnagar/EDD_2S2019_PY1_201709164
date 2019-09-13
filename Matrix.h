@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+#include <string>
 class Matrix
 {
 private:
@@ -28,7 +30,10 @@ public:
 
 	void mostrar();
 
-	void colocarnodo(int rojo, int red, int azul, int x, int y);
+	void colocarnodo(int rojo, int verde, int azul, int x, int y);
+
+
+	
 
 
 
