@@ -11,17 +11,42 @@
 using namespace std;
 Matrix lectura(std::string ruta,int x,int y);
 lista llenarlista(std::string ruta);
-void exportar(std::string filtro, lista list);
+void exportar( lista list);
+lista aplicarfiltro(lista mat, std::string filtro, int capai,int x, int y);
  string dehex(int dec);
  string hex(int r, int g, int b);
+ lista expandir(lista list, int x, int y);
+
 int main()
 
 {	
+int m;
 	lista list;
 	string hola = "Ave\\inicial.csv";
 	list=llenarlista(hola);
-	exportar("negativo", list);
-	list.mostrar();
+	lista lista2 =aplicarfiltro(list, "HOLA", 0,10,10);
+	exportar(lista2);
+	cout << "\t\t\tElija una opcion\n\n";
+	cout << "1  Ingresos\n";
+	cout << "2  Modificacion\n";
+	cout << "3  Consultas\n";
+	cout << "4  Reportes\n";
+	cout << "5  Utilidades\n";
+	cout << "6  Salir\n\n";
+	cin >> m;
+
+	switch (m)
+	{
+	case 1:cout << "Ud tiene S/. 2500" << endl; break;
+	case 2:cout << "¿Que desea modificar?" << endl; break;
+	case 3:cout << "Escriba su consulta aqui: " << endl; break;
+	case 4:cout << "Ud. no presenta reportes" << endl; break;
+	case 5:cout << "Este servicio esta bloqueado por el momento" << endl; break;
+	case 6:cout << "Ya esta fuera" << endl; break;
+	default: cout << "El valor ingresado no esta en el menu" << endl;
+	}
+	cin.ignore(); return 0;
+
 	
 }
 Matrix lectura(std::string ruta, int x, int y)
@@ -119,9 +144,7 @@ lista llenarlista(std::string ruta) {
 	while (!archivo.eof()) {
 		getline(archivo, texto, ',');
 		name = texto;
-		cout << name << endl;
 		getline(archivo, texto, '\n');
-		cout << texto << endl;
 		if (strstr(texto.c_str(), "config.csv")) {
 			string text;
 			ifstream archi;
@@ -155,7 +178,6 @@ lista llenarlista(std::string ruta) {
 				
 				
 			}
-			cout << "entro";
           list.config(x,y,px,py,nombre);
 		}
 		else {
@@ -167,7 +189,7 @@ lista llenarlista(std::string ruta) {
 
 	return list;
 };
-void exportar(std::string filtro, lista list) {
+void exportar( lista list) {
 
 	ofstream archivo;
 	string nombre = list.cabeza->nombre;
@@ -223,18 +245,7 @@ void exportar(std::string filtro, lista list) {
 				string hec;
 				int pos = (te.tempx->y-1) * x + te.tempx->x;
 				filecss << " .pixel:nth-child(" + to_string(pos) + ") {\n";
-
-				if (strstr(filtro.c_str(), "blancoynegro")) {
-					int black = te.tempx->rojo * 0.3+ te.tempx->verde * 0.59+ te.tempx->azul * 0.11;
-					hec = hex(black,black,black);
-				}
-				else if (strstr(filtro.c_str(), "negativo")) {
-					hec = hex(255-te.tempx->rojo ,255-te.tempx->verde,255-te.tempx->azul);
-				}
-				else {
 					hec = hex(te.tempx->rojo, te.tempx->verde, te.tempx->azul); 
-				}
-					
 					filecss << " background: " + hec + ";}\n";
 			   
 				 
@@ -250,8 +261,93 @@ void exportar(std::string filtro, lista list) {
 	
 
 };
+lista aplicarfiltro(lista mat, std::string filtro, int capa,int x,int y) {
+	lista list = expandir(mat,x,y);
+	list.temp = list.cabeza->siguiente;
+	bool todo; 
+	if (capa == 0) { todo = true; }
+	else { todo = false; }
+	while (list.temp != NULL) {	
+		if (todo==false) {
+			while (list.temp->nombre != to_string(capa) && list.temp != NULL) {
+				list.temp = list.temp->siguiente;
+			}
+		}
+		Matrix te = list.temp->data;
+		te.tempy = te.cabeza->aba;
+		te.tempx = te.cabeza;
 
+	
 
+		while (te.tempy != NULL) {
+			te.tempx = te.tempy->der;
+		
+
+			while (te.tempx != NULL) {
+				if (strstr(filtro.c_str(), "blancoynegro")) {
+					int black = te.tempx->rojo * 0.3 + te.tempx->verde * 0.59 + te.tempx->azul * 0.11;
+					te.tempx->rojo= black;
+					te.tempx->verde = black;
+					te.tempx->azul = black;
+				}
+				else if (strstr(filtro.c_str(), "negativo")) {
+					te.tempx->rojo=255 - te.tempx->rojo;
+					te.tempx->verde=255 - te.tempx->verde;
+					te.tempx->azul=255 - te.tempx->azul;
+				}
+				
+				te.tempx = te.tempx->der;
+			}
+			te.tempy = te.tempy->aba;
+			
+		}
+		if (todo == false) {
+				return list;
+			}
+		list.temp = list.temp->siguiente;
+	}
+	return list;
+
+};
+lista expandir(lista list, int x, int y) {
+	lista expandida;
+	string name;
+	int alto = list.cabeza->alto * y;
+	int ancho = list.cabeza->ancho * x;
+	expandida.config(ancho, alto, list.cabeza->pixelx, list.cabeza->pixely, list.cabeza->nombre);
+	list.temp = list.cabeza->siguiente;
+	
+	while (list.temp != NULL) {
+		Matrix nueva;
+		for (int i = 0; i < ancho; i++) {
+			nueva.nuevacolumna();
+		}
+		for (int i = 0; i < alto; i++) {
+			nueva.nuevafila();
+		}
+		Matrix te = list.temp->data;
+		for(int i=0; i<y;i++){
+			te.tempy = te.cabeza->aba;
+		te.tempx = te.cabeza;
+			while (te.tempy != NULL) {
+				
+				for (int j = 0; j < x; j++) {
+					te.tempx = te.tempy->der;
+				while (te.tempx != NULL) {
+					nueva.colocarnodo(te.tempx->rojo, te.tempx->verde, te.tempx->azul, te.tempx->x + (j * list.cabeza->ancho), te.tempx->y + (i * list.cabeza->alto));
+					te.tempx = te.tempx->der;
+				}
+			}
+			te.tempy = te.tempy->aba;
+		}
+		}
+		name= list.temp->nombre;
+		expandida.agregarinicio(nueva,name);
+		list.temp = list.temp->siguiente;
+	}
+
+	return expandida;
+};
 
 
 
