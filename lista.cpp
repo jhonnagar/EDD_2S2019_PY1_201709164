@@ -7,11 +7,15 @@ lista::lista() {
 	temp = NULL;
 	fin = NULL;
 }
-
-void lista::agregarinicio(Matrix adddata){
+string lista::getnombre() {
+	string nombre = cabeza->nombre;
+	return nombre;
+}
+void lista::agregarinicio(Matrix adddata,std::string name){
 	nodoptr n = new nodo;
 	n->siguiente = NULL;
 	n->data = adddata;
+	n->nombre = name;
 	if (cabeza == NULL) {
 		cabeza = n;
 		fin = n;
@@ -19,17 +23,18 @@ void lista::agregarinicio(Matrix adddata){
 	else
 	{
 		fin->siguiente = n;
-		fin = n;
+		fin =n;
 	}
 
 }
-void lista::config(int ancho, int alto, int px, int py) {
+void lista::config(int ancho, int alto, int px, int py, std::string nomb) {
 	nodoptr n = new nodo;
 	n->siguiente = NULL;
 	n->alto = alto;
 	n->ancho = ancho;
 	n->pixelx = px;
 	n->pixely = py;
+	n->nombre = nomb;
     cabeza=n;
 	fin = n;
 }
@@ -37,7 +42,7 @@ void lista::config(int ancho, int alto, int px, int py) {
 void lista::mostrar() {
 	temp = cabeza;
 	while (temp!=NULL) {
-
+		cout << temp->nombre<<endl;
 		temp->data.mostrar();
 		temp = temp->siguiente;
 		cout << "////////////"<<endl;

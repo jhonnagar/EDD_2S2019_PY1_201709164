@@ -16,10 +16,11 @@ private:
 		nodo* der;
 	}*nodoptr;
 
+	
+public:
 	nodoptr cabeza;
 	nodoptr finder;
 	nodoptr finaba;
-public: 
 	nodoptr tempy;
 	nodoptr tempx;
 	Matrix();
