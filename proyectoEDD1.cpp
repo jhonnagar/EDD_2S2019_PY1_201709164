@@ -16,15 +16,17 @@ lista aplicarfiltro(lista mat, std::string filtro, int capai,int x, int y);
  string dehex(int dec);
  string hex(int r, int g, int b);
  lista expandir(lista list, int x, int y);
+ lista mirrory(lista list);
 
 int main()
 
 {	
 int m;
-	lista list;
-	string hola = "Ave\\inicial.csv";
+    lista list ;
+	string hola = "hora_de_aventura\\hora_de_aventura.csv";
 	list=llenarlista(hola);
-	lista lista2 =aplicarfiltro(list, "HOLA", 0,10,10);
+	list.mostrar();
+	lista lista2 =aplicarfiltro(list, "hola", 0,1,1);
 	exportar(lista2);
 	cout << "\t\t\tElija una opcion\n\n";
 	cout << "1  Ingresos\n";
@@ -49,6 +51,7 @@ int m;
 
 	
 }
+
 Matrix lectura(std::string ruta, int x, int y)
 {
 
@@ -193,7 +196,7 @@ void exportar( lista list) {
 
 	ofstream archivo;
 	string nombre = list.cabeza->nombre;
-	archivo.open(nombre+"\\"+nombre+".html",ios::out);
+	archivo.open("export\\"+nombre+".html",ios::out);
 	archivo << "<!DOCTYPE html>\n";
 	archivo << "<html>\n";
 	archivo << "<head>\n";
@@ -214,7 +217,7 @@ void exportar( lista list) {
 	archivo.close();
 
 	ofstream filecss;
-	filecss.open(nombre + "\\" + nombre + ".scss", ios::out);
+	filecss.open( "export\\" + nombre + ".scss", ios::out);
 	filecss << "body {\n";
 	filecss << "background: #ffffff;\n";
 	filecss << "height: 100vh;\n";
@@ -348,12 +351,62 @@ lista expandir(lista list, int x, int y) {
 
 	return expandida;
 };
+lista mirrory(lista list) {
+	lista expandida;
+	string name;
+	int alto = list.cabeza->alto;
+	expandida.config(list.cabeza->ancho, list.cabeza->alto, list.cabeza->pixelx, list.cabeza->pixely, list.cabeza->nombre);
+	list.temp = list.cabeza->siguiente;
+	
+	while (list.temp != NULL) {
+		Matrix nueva;
+		for (int i = 0; i < list.cabeza->ancho; i++) {
+			nueva.nuevacolumna();
+		}
+		for (int i = 0; i < list.cabeza->alto; i++) {
+			nueva.nuevafila();
+		}
+		Matrix te = list.temp->data;
+			te.tempy = te.finaba;
+			while (te.tempy != te.cabeza) {
+					te.tempx = te.tempy->der;
+					while (te.tempx != NULL) {
+						nueva.colocarnodo(te.tempx->rojo, te.tempx->verde, te.tempx->azul,te.tempx->x, alto+1-te.tempx->y);
+						te.tempx = te.tempx->der;
+					}
+				
+				te.tempy = te.tempy->arri;
+			}
+		
+		name = list.temp->nombre;
+		expandida.agregarinicio(nueva, name);
+		list.temp = list.temp->siguiente;
+	}
+
+	return expandida;
+};
 
 
 
 
  string dehex(int dec) {
 	if (dec < 1) return "00";
+	if (dec == 1) return"01";
+	if (dec ==2) return"02";
+	if (dec == 3) return"03";
+	if (dec == 4) return"04";
+	if (dec == 5) return"05";
+	if (dec == 6) return"06";
+	if (dec == 7) return"07";
+	if (dec == 8) return"08";
+	if (dec == 9) return"09";
+	if (dec == 10) return"0A";
+	if (dec == 11) return"0B";
+	if (dec == 12) return"0C";
+	if (dec == 13) return"0D";
+	if (dec == 14) return"0E";
+	if (dec == 15) return"0F";
+
 	
 	int hex = dec;
 	string hexStr = "";

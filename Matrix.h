@@ -31,6 +31,9 @@ public:
 
 	void mostrar();
 
+	void editar(int r, int g, int b, int x, int y);
+
+
 	void colocarnodo(int rojo, int verde, int azul, int x, int y);
 
 

@@ -92,6 +92,20 @@ void Matrix:: mostrar()
 	
 	}
 }
+void Matrix:: editar(int r,int g, int b,int x,int y) {
+	tempx = cabeza;
+	while (tempx->x != x) {
+		tempx = tempx->der;
+	}
+	while (tempx->y != y) {
+		tempx = tempx->aba;
+	}
+	tempx->rojo = r;
+	tempx->verde = g;
+	tempx->azul = b;
+	cout << tempx;
+
+}
 void Matrix::colocarnodo(int rojo , int verde , int azul,int x, int y) 
 {
 	nodoptr n = new nodo;
