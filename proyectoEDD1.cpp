@@ -4,6 +4,7 @@
 #include <iostream>
 #include"lista.h"
 #include"Matrix.h"
+#include"arbol.h"
 #include<stdlib.h>
 #include<fstream>
 #include <sstream>
@@ -17,16 +18,29 @@ lista aplicarfiltro(lista mat, std::string filtro, int capai,int x, int y);
  string hex(int r, int g, int b);
  lista expandir(lista list, int x, int y);
  lista mirrory(lista list);
-
+ lista mirrorx(lista list);
 int main()
 
 {	
 int m;
+	arbol arbol;
+	arbol.insert("hola");
+	arbol.insert("holas");
+	arbol.insert("mario");
+	arbol.insert("maria");
+	arbol.insert("eduardo");
+	arbol.insert("calamar");
+	arbol.inorder();
+	cout << endl;
+	arbol.postorder();
+	cout << endl;
+	arbol.preorder();
+	cout << endl;
     lista list ;
 	string hola = "hora_de_aventura\\hora_de_aventura.csv";
 	list=llenarlista(hola);
 	list.mostrar();
-	lista lista2 =aplicarfiltro(list, "hola", 0,1,1);
+	lista lista2 =aplicarfiltro(list, "doblemirror", 0,1,1);
 	exportar(lista2);
 	cout << "\t\t\tElija una opcion\n\n";
 	cout << "1  Ingresos\n";
@@ -266,6 +280,14 @@ void exportar( lista list) {
 };
 lista aplicarfiltro(lista mat, std::string filtro, int capa,int x,int y) {
 	lista list = expandir(mat,x,y);
+	if (strstr(filtro.c_str(), "mirrorx")) {
+		list = mirrorx(list);
+	}if (strstr(filtro.c_str(), "mirrory")) {
+		list = mirrory(list);
+	}if (strstr(filtro.c_str(), "doblemirror")) {
+		list = mirrorx(list);
+		list = mirrory(list);
+	}
 	list.temp = list.cabeza->siguiente;
 	bool todo; 
 	if (capa == 0) { todo = true; }
@@ -385,9 +407,40 @@ lista mirrory(lista list) {
 
 	return expandida;
 };
+lista mirrorx(lista list) {
+	lista expandida;
+	string name;
+	int ancho = list.cabeza->ancho;
+	expandida.config(list.cabeza->ancho, list.cabeza->alto, list.cabeza->pixelx, list.cabeza->pixely, list.cabeza->nombre);
+	list.temp = list.cabeza->siguiente;
 
+	while (list.temp != NULL) {
+		Matrix nueva;
+		for (int i = 0; i < list.cabeza->ancho; i++) {
+			nueva.nuevacolumna();
+		}
+		for (int i = 0; i < list.cabeza->alto; i++) {
+			nueva.nuevafila();
+		}
+		Matrix te = list.temp->data;
+		te.tempx = te.finder;
+		while (te.tempx != te.cabeza) {
+			te.tempy = te.tempx->aba;
+			while (te.tempy != NULL) {
+				nueva.colocarnodo(te.tempy->rojo, te.tempy->verde, te.tempy->azul,ancho+1- te.tempy->x, te.tempy->y);
+				te.tempy = te.tempy->aba;
+			}
 
+			te.tempx = te.tempx->izqu;
+		}
 
+		name = list.temp->nombre;
+		expandida.agregarinicio(nueva, name);
+		list.temp = list.temp->siguiente;
+	}
+
+	return expandida;
+};
 
  string dehex(int dec) {
 	if (dec < 1) return "00";

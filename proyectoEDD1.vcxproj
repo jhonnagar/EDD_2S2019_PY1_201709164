@@ -151,13 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="lectorcsv.cpp" />
+    <ClCompile Include="arbol.cpp" />
     <ClCompile Include="lista.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="proyectoEDD1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lectorcsv.h" />
+    <ClInclude Include="arbol.h" />
     <ClInclude Include="lista.h" />
     <ClInclude Include="Matrix.h" />
   </ItemGroup>

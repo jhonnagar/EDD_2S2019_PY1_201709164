@@ -41,9 +41,23 @@ void lista::config(int ancho, int alto, int px, int py, std::string nomb) {
 	
 void lista::mostrar() {
 	temp = cabeza;
+	temp = temp->siguiente;
 	while (temp!=NULL) {
 		cout << temp->nombre<<endl;
-		temp->data.mostrar();
+		Matrix te= temp->data;
+		te.tempy = te.cabeza;
+		te.tempx = te.cabeza;
+		
+		while (te.tempy != NULL) {
+			te.tempx = te.tempy;
+			while (te.tempx != NULL) {
+				cout << te.tempx->x << "," << te.tempx->y << " ";
+				te.tempx = te.tempx->der;
+			}
+			te.tempy = te.tempy->aba;
+			cout << "---------" << endl;
+
+		}
 		temp = temp->siguiente;
 		cout << "////////////"<<endl;
 	}

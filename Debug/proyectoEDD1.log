@@ -1,3 +1,3 @@
 ﻿  proyectoEDD1.cpp
-C:\Users\popipower2\Desktop\proyectoedd\proyectoEDD1\proyectoEDD1\proyectoEDD1.cpp(291,16): warning C4244:  'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\popipower2\Desktop\proyectoedd\proyectoEDD1\proyectoEDD1\proyectoEDD1.cpp(313,16): warning C4244:  'initializing': conversion from 'double' to 'int', possible loss of data
   proyectoEDD1.vcxproj -> C:\Users\popipower2\Desktop\proyectoedd\proyectoEDD1\Debug\proyectoEDD1.exe
