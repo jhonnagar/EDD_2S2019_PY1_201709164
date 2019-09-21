@@ -36,9 +36,9 @@ int m;
 	arbol.postorder();
 	arbol.preorder();
     lista list ;
-	string hola = "hora_de_aventura\\hora_de_aventura.csv";
+	string hola = "Ave\\inicial.csv";
 	list=llenarlista(hola);
-
+	list.mostrar("hola");
 	lista lista2 =aplicarfiltro(list, "doblemirror", 0,1,1);
 	exportar(lista2);
 	cout << "\t\t\tElija una opcion\n\n";

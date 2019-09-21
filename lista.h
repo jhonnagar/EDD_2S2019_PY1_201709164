@@ -25,6 +25,6 @@ public:
 
 	void agregarinicio(Matrix adddata,std::string name);
 	void config(int ancho, int alto, int px, int py, std::string nomb);
-	void mostrar();
+	void mostrar(std::string name);
 };
 

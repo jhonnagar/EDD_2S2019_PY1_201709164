@@ -1,6 +1,8 @@
 #include "lista.h"
+#include<stdlib.h>
 #include<iostream>
-#include<cstdlib>
+#include<fstream>
+#include <string>
 using namespace std;
 lista::lista() {
 	cabeza = NULL;
@@ -39,28 +41,72 @@ void lista::config(int ancho, int alto, int px, int py, std::string nomb) {
 	fin = n;
 }
 	
-void lista::mostrar() {
+void lista::mostrar(std::string name) {
+
 	temp = cabeza;
 	temp = temp->siguiente;
-	while (temp!=NULL) {
-		cout << temp->nombre<<endl;
+	while (temp!=NULL) {	
+		string rank="";
+	    string texto="";
+	    string armado="";
+		string nodo = "";
+		ofstream archivo;
+		archivo.open("report\\"+temp->nombre+name+".dot", ios::out);
+		archivo << "digraph R { \n";
+		archivo << "node[shape = record];\n";
 		Matrix te= temp->data;
-		te.tempy = te.cabeza;
+		te.tempy = te.cabeza->aba;
 		te.tempx = te.cabeza;
-		
+		while (te.tempx != NULL) {
+			rank = rank+ "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y)+" ";
+			nodo= nodo + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) +" [label = \""+ "columna" + to_string(te.tempx->x) +"\"]; \n";
+
+			if (te.tempx->aba != NULL) {
+				texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
+			}
+			if (te.tempx->der != NULL) {
+				texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->der->x) + "" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
+			}
+				te.tempx = te.tempx->der;
+		}
+		armado = armado+"{ rank=same "+rank + " }\n";
 		while (te.tempy != NULL) {
+			rank = "";
 			te.tempx = te.tempy;
+			rank = rank + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + " ";
+			nodo = nodo + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + " [label = \"" + "fila" + to_string(te.tempx->y) + "\"]; \n";
+			if (te.tempx->aba != NULL) {
+				texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
+			}
+			if (te.tempx->der != NULL) {
+				texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->der->x) + "" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
+			}
+			te.tempx = te.tempx->der;
 			while (te.tempx != NULL) {
-				cout << te.tempx->x << "," << te.tempx->y << " ";
+				string color = to_string(te.tempx->rojo) + "-"+to_string(te.tempx->verde) + "-"+to_string(te.tempx->azul) ;
+				nodo = nodo + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + " [label = \"" + color + "\"]; \n";
+				rank = rank + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + " ";
+				if (te.tempx->aba != NULL) {
+					texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
+				}
+				if (te.tempx->der != NULL) {
+					texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->der->x) + "" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
+				}
 				te.tempx = te.tempx->der;
 			}
+			armado = armado + "{ rank=same " + rank + " }\n";
 			te.tempy = te.tempy->aba;
-			cout << "---------" << endl;
-
 		}
+		archivo << nodo;
+		archivo <<armado;
+		archivo << texto+"}";
+		archivo.close();
+		string crear = "dot -Tpng report\\" + temp->nombre +name + ".dot -o report\\" + temp->nombre +name+ ".png";
+		system(crear.c_str());
 		temp = temp->siguiente;
-		cout << "////////////"<<endl;
+		
 	}
+	cout <<"terminado";
 }
 
 
