@@ -58,14 +58,14 @@ void lista::mostrar(std::string name) {
 		te.tempy = te.cabeza->aba;
 		te.tempx = te.cabeza;
 		while (te.tempx != NULL) {
-			rank = rank+ "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y)+" ";
-			nodo= nodo + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) +" [label = \""+ "columna" + to_string(te.tempx->x) +"\"]; \n";
+			rank = rank+ "nod0" + to_string(te.tempx->x) + to_string(te.tempx->y)+" ";
+			nodo = nodo + "nod0" + to_string(te.tempx->x) + to_string(te.tempx->y) + " [label = \"" + "columna   " + to_string(te.tempx->x) + "\" pos = \"" + to_string(te.tempx->x*2) + "," + to_string(te.tempx->y*2) + "!\"]; \n";
 
 			if (te.tempx->aba != NULL) {
-				texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
+				texto = texto + "nod0" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "_" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
 			}
 			if (te.tempx->der != NULL) {
-				texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->der->x) + "" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
+				texto = texto + "nod0" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nod0" + to_string(te.tempx->der->x) + "" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
 			}
 				te.tempx = te.tempx->der;
 		}
@@ -73,24 +73,24 @@ void lista::mostrar(std::string name) {
 		while (te.tempy != NULL) {
 			rank = "";
 			te.tempx = te.tempy;
-			rank = rank + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + " ";
-			nodo = nodo + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + " [label = \"" + "fila" + to_string(te.tempx->y) + "\"]; \n";
+			rank = rank + "nodo" + to_string(te.tempx->x) +"_"+ to_string(te.tempx->y) + " ";
+			nodo = nodo + "nodo" + to_string(te.tempx->x) +"_"+ to_string(te.tempx->y) + " [label =\"" + "fila" + to_string(te.tempx->y) + "\" pos = \"" + to_string(te.tempx->x*2) + ",-" + to_string(te.tempx->y*2) + "!\"]; \n";
 			if (te.tempx->aba != NULL) {
-				texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
+				texto = texto + "nodo" + to_string(te.tempx->x)+"_" + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "_" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
 			}
 			if (te.tempx->der != NULL) {
-				texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->der->x) + "" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
+				texto = texto + "nodo" + to_string(te.tempx->x) +"_"+ to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->der->x) + "_" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
 			}
 			te.tempx = te.tempx->der;
 			while (te.tempx != NULL) {
 				string color = to_string(te.tempx->rojo) + "-"+to_string(te.tempx->verde) + "-"+to_string(te.tempx->azul) ;
-				nodo = nodo + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + " [label = \"" + color + "\"]; \n";
-				rank = rank + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + " ";
+				nodo = nodo + "nodo" + to_string(te.tempx->x) +"_"+ to_string(te.tempx->y) + " [label = \"" + color + "\" pos = \"" + to_string(te.tempx->x*2) + ",-" + to_string(te.tempx->y*2) + "!\"]; \n";
+				rank = rank + "nodo" + to_string(te.tempx->x) + "_"+to_string(te.tempx->y) + " ";
 				if (te.tempx->aba != NULL) {
-					texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
+					texto = texto + "nodo" + to_string(te.tempx->x) +"_"+ to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->aba->x) + "_" + to_string(te.tempx->aba->y) + " [dir=\"both\"] \n";
 				}
 				if (te.tempx->der != NULL) {
-					texto = texto + "nodo" + to_string(te.tempx->x) + to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->der->x) + "" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
+					texto = texto + "nodo" + to_string(te.tempx->x) +"_"+ to_string(te.tempx->y) + "->" + "nodo" + to_string(te.tempx->der->x) + "_" + to_string(te.tempx->der->y) + " [dir=\"both\"] \n";
 				}
 				te.tempx = te.tempx->der;
 			}
@@ -101,7 +101,7 @@ void lista::mostrar(std::string name) {
 		archivo <<armado;
 		archivo << texto+"}";
 		archivo.close();
-		string crear = "dot -Tpng report\\" + temp->nombre +name + ".dot -o report\\" + temp->nombre +name+ ".png";
+		string crear = "neato -Tpng report\\" + temp->nombre +name + ".dot -o report\\" + temp->nombre +name+ ".png";
 		system(crear.c_str());
 		temp = temp->siguiente;
 		

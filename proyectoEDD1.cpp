@@ -19,50 +19,86 @@ lista aplicarfiltro(lista mat, std::string filtro, int capai,int x, int y);
  lista expandir(lista list, int x, int y);
  lista mirrory(lista list);
  lista mirrorx(lista list);
+ void pausa();
+ string nombre;
+ arbol tree;
+lista list;
+
 int main()
+{
+	bool bandera = false;
+	char tecla;
 
-{	
-int m;
-	arbol arbol;
-	arbol.insert("a");
-	arbol.insert("h");
-	arbol.insert("m");
-	arbol.insert("r");
-	arbol.insert("s");
-	arbol.insert("b");
-	arbol.insert("c");
-	
-	arbol.inorder();
-	arbol.postorder();
-	arbol.preorder();
-    lista list ;
-	string hola = "Ave\\inicial.csv";
-	list=llenarlista(hola);
-	list.mostrar("hola");
-	lista lista2 =aplicarfiltro(list, "doblemirror", 0,1,1);
-	exportar(lista2);
-	cout << "\t\t\tElija una opcion\n\n";
-	cout << "1  Ingresos\n";
-	cout << "2  Modificacion\n";
-	cout << "3  Consultas\n";
-	cout << "4  Reportes\n";
-	cout << "5  Utilidades\n";
-	cout << "6  Salir\n\n";
-	cin >> m;
-
-	switch (m)
+	do
 	{
-	case 1:cout << "Ud tiene S/. 2500" << endl; break;
-	case 2:cout << "¿Que desea modificar?" << endl; break;
-	case 3:cout << "Escriba su consulta aqui: " << endl; break;
-	case 4:cout << "Ud. no presenta reportes" << endl; break;
-	case 5:cout << "Este servicio esta bloqueado por el momento" << endl; break;
-	case 6:cout << "Ya esta fuera" << endl; break;
-	default: cout << "El valor ingresado no esta en el menu" << endl;
-	}
-	cin.ignore(); return 0;
+		
+		system("cls");
+		cin.clear();
+		cout << "________PHOTGEN++_______" << endl;
+		cout << "-----------" << endl << endl;
+		cout << "\t1 .- insertar imagen" << endl;
+		cout << "\t2 .- seleccionar imagen" << endl;
+		cout << "\t3 .- aplicar filtros " << endl;
+		cout << "\t4 .- edicion manuel" << endl;
+		cout << "\t6 .- exportar" << endl;
+		cout << "\t7 .- reportes" << endl << endl;
+		cout << "Elije una opcion: ";
+        
+		cin >> tecla;
 
-	
+		switch (tecla)
+		{
+		case '1':
+			system("cls");
+			cout << "ecribir ruta del archivo.\n";
+			cin>>nombre;
+			list = llenarlista(nombre);
+			tree.insert(list.cabeza->nombre, list);
+			
+			cout << "agregada";
+			tree.inorder();
+			pausa();
+			break;
+
+		case '2':
+			system("cls");
+			cout << tree.in();
+			pausa();
+			break;
+
+		case '3':
+			system("cls");
+			cout << "Has elejido Multiplicar.\n";
+			pausa();
+			break;
+
+		case '4':
+			system("cls");
+			cout << "Has elejido Dividir.\n";
+			pausa();
+			break;
+
+		case '5':
+			bandera = true;
+			//exit(1);
+			break;
+
+		default:
+			system("cls");
+			cout << "Opcion no valida.\a\n";
+			pausa();
+			break;
+		}
+	} while (bandera != true);
+
+	return 0;
+}
+
+void pausa()
+{
+	cout << "Pulsa una tecla para continuar...";
+	getwchar();
+	getwchar();
 }
 
 Matrix lectura(std::string ruta, int x, int y)
@@ -154,7 +190,8 @@ lista llenarlista(std::string ruta) {
 	if (archivo.fail())
 	{
 		cout << "no hay archivo";
-	}
+		return list;
+	}else
 	getline(archivo, texto, ',');
 	getline(archivo, texto, '\n');
 	while (!archivo.eof()) {

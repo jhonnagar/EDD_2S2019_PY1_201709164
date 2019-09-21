@@ -21,8 +21,8 @@ public:
 	}
 
   
-	bool insert(std::string  data) {
-		return insert(data, root);
+	bool insert(std::string  data,lista list) {
+		return insert(data, root,list);
 	};
 
 	void inorder() {
@@ -119,8 +119,11 @@ public:
 	string graficar() {
 		return grafica(1,root );
 	};
+	string in() {
+		return inorder(root);
+	}
 
-	bool insert(std::string item, nodo* raiz_actual);
+	bool insert(std::string item, nodo* raiz_actual,lista list);
 	string inorder(nodo* actual);
 	string postorder(nodo* actual);
 	string grafica(int nod,nodo* root );

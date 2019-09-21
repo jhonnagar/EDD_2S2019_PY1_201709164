@@ -1,8 +1,9 @@
 #include "arbol.h"
 #include <iostream>
-bool arbol::insert(std::string item, nodo* raiz_actual) {
+bool arbol::insert(std::string item, nodo* raiz_actual,lista list) {
      	nodoptr n = new nodo();
 		n->nombre = item;
+		n->data = list;
 	if (root == NULL) {
 		root = n;
 		return true;
@@ -13,7 +14,7 @@ bool arbol::insert(std::string item, nodo* raiz_actual) {
 			return true;
 		}
 		else {
-			return insert(item, raiz_actual->izq);
+			return insert(item, raiz_actual->izq,list);
 		}
 	}
 	else if (item > raiz_actual->nombre) {
@@ -22,7 +23,7 @@ bool arbol::insert(std::string item, nodo* raiz_actual) {
 			return true;
 		}
 		else {
-			return insert(item, raiz_actual->der);
+			return insert(item, raiz_actual->der,list);
 		}
 	}
 	else {
@@ -53,7 +54,7 @@ string arbol::postorder(nodo* root) {
 	if (root != NULL) {
 		inor = inor + postorder(root->izq) ;
 		inor = inor + postorder(root->der) ;
-		inor = inor + root->nombre+";"  ;
+		inor = inor +";"+ root->nombre  ;
 	}
 	return inor;
 }

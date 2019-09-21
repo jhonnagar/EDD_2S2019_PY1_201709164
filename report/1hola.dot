@@ -1,0 +1,436 @@
+digraph R { 
+node[shape = record];
+nod000 [label = "columna   0" pos = "0,0!"]; 
+nod010 [label = "columna   1" pos = "2,0!"]; 
+nod020 [label = "columna   2" pos = "4,0!"]; 
+nod030 [label = "columna   3" pos = "6,0!"]; 
+nod040 [label = "columna   4" pos = "8,0!"]; 
+nod050 [label = "columna   5" pos = "10,0!"]; 
+nod060 [label = "columna   6" pos = "12,0!"]; 
+nod070 [label = "columna   7" pos = "14,0!"]; 
+nod080 [label = "columna   8" pos = "16,0!"]; 
+nod090 [label = "columna   9" pos = "18,0!"]; 
+nod0100 [label = "columna   10" pos = "20,0!"]; 
+nod0110 [label = "columna   11" pos = "22,0!"]; 
+nod0120 [label = "columna   12" pos = "24,0!"]; 
+nod0130 [label = "columna   13" pos = "26,0!"]; 
+nod0140 [label = "columna   14" pos = "28,0!"]; 
+nod0150 [label = "columna   15" pos = "30,0!"]; 
+nod0160 [label = "columna   16" pos = "32,0!"]; 
+nod0170 [label = "columna   17" pos = "34,0!"]; 
+nod0180 [label = "columna   18" pos = "36,0!"]; 
+nod0190 [label = "columna   19" pos = "38,0!"]; 
+nodo0_1 [label ="fila1" pos = "0,-2!"]; 
+nodo0_2 [label ="fila2" pos = "0,-4!"]; 
+nodo0_3 [label ="fila3" pos = "0,-6!"]; 
+nodo8_3 [label = "0-77-153" pos = "16,-6!"]; 
+nodo9_3 [label = "0-77-153" pos = "18,-6!"]; 
+nodo10_3 [label = "0-77-153" pos = "20,-6!"]; 
+nodo11_3 [label = "0-77-153" pos = "22,-6!"]; 
+nodo0_4 [label ="fila4" pos = "0,-8!"]; 
+nodo6_4 [label = "0-77-153" pos = "12,-8!"]; 
+nodo7_4 [label = "0-77-154" pos = "14,-8!"]; 
+nodo8_4 [label = "0-77-155" pos = "16,-8!"]; 
+nodo9_4 [label = "0-77-156" pos = "18,-8!"]; 
+nodo10_4 [label = "0-77-157" pos = "20,-8!"]; 
+nodo11_4 [label = "0-77-158" pos = "22,-8!"]; 
+nodo12_4 [label = "0-77-159" pos = "24,-8!"]; 
+nodo13_4 [label = "0-77-153" pos = "26,-8!"]; 
+nodo0_5 [label ="fila5" pos = "0,-10!"]; 
+nodo5_5 [label = "0-77-152" pos = "10,-10!"]; 
+nodo6_5 [label = "153-206-255" pos = "12,-10!"]; 
+nodo7_5 [label = "153-206-255" pos = "14,-10!"]; 
+nodo8_5 [label = "153-206-255" pos = "16,-10!"]; 
+nodo9_5 [label = "153-206-255" pos = "18,-10!"]; 
+nodo10_5 [label = "153-206-255" pos = "20,-10!"]; 
+nodo11_5 [label = "153-206-255" pos = "22,-10!"]; 
+nodo12_5 [label = "153-206-255" pos = "24,-10!"]; 
+nodo13_5 [label = "153-206-255" pos = "26,-10!"]; 
+nodo14_5 [label = "0-77-153" pos = "28,-10!"]; 
+nodo0_6 [label ="fila6" pos = "0,-12!"]; 
+nodo5_6 [label = "0-77-153" pos = "10,-12!"]; 
+nodo6_6 [label = "153-206-255" pos = "12,-12!"]; 
+nodo7_6 [label = "153-206-255" pos = "14,-12!"]; 
+nodo8_6 [label = "153-206-255" pos = "16,-12!"]; 
+nodo9_6 [label = "153-206-255" pos = "18,-12!"]; 
+nodo10_6 [label = "153-206-255" pos = "20,-12!"]; 
+nodo11_6 [label = "153-206-255" pos = "22,-12!"]; 
+nodo12_6 [label = "153-206-255" pos = "24,-12!"]; 
+nodo13_6 [label = "153-206-255" pos = "26,-12!"]; 
+nodo14_6 [label = "0-77-153" pos = "28,-12!"]; 
+nodo0_7 [label ="fila7" pos = "0,-14!"]; 
+nodo4_7 [label = "0-77-148" pos = "8,-14!"]; 
+nodo5_7 [label = "153-206-255" pos = "10,-14!"]; 
+nodo6_7 [label = "153-206-255" pos = "12,-14!"]; 
+nodo7_7 [label = "153-206-255" pos = "14,-14!"]; 
+nodo8_7 [label = "153-206-255" pos = "16,-14!"]; 
+nodo9_7 [label = "153-206-255" pos = "18,-14!"]; 
+nodo10_7 [label = "153-206-255" pos = "20,-14!"]; 
+nodo11_7 [label = "153-206-255" pos = "22,-14!"]; 
+nodo12_7 [label = "153-206-255" pos = "24,-14!"]; 
+nodo13_7 [label = "153-206-255" pos = "26,-14!"]; 
+nodo14_7 [label = "153-206-255" pos = "28,-14!"]; 
+nodo15_7 [label = "0-77-153" pos = "30,-14!"]; 
+nodo0_8 [label ="fila8" pos = "0,-16!"]; 
+nodo4_8 [label = "0-77-149" pos = "8,-16!"]; 
+nodo5_8 [label = "153-206-255" pos = "10,-16!"]; 
+nodo6_8 [label = "153-206-255" pos = "12,-16!"]; 
+nodo7_8 [label = "255-255-255" pos = "14,-16!"]; 
+nodo11_8 [label = "255-255-255" pos = "22,-16!"]; 
+nodo13_8 [label = "153-206-255" pos = "26,-16!"]; 
+nodo14_8 [label = "153-206-255" pos = "28,-16!"]; 
+nodo15_8 [label = "0-77-153" pos = "30,-16!"]; 
+nodo0_9 [label ="fila9" pos = "0,-18!"]; 
+nodo4_9 [label = "0-77-150" pos = "8,-18!"]; 
+nodo5_9 [label = "153-206-255" pos = "10,-18!"]; 
+nodo6_9 [label = "153-206-255" pos = "12,-18!"]; 
+nodo13_9 [label = "153-206-255" pos = "26,-18!"]; 
+nodo14_9 [label = "153-206-255" pos = "28,-18!"]; 
+nodo15_9 [label = "0-77-153" pos = "30,-18!"]; 
+nodo0_10 [label ="fila10" pos = "0,-20!"]; 
+nodo4_10 [label = "0-77-151" pos = "8,-20!"]; 
+nodo5_10 [label = "153-206-255" pos = "10,-20!"]; 
+nodo6_10 [label = "153-206-255" pos = "12,-20!"]; 
+nodo7_10 [label = "153-206-255" pos = "14,-20!"]; 
+nodo12_10 [label = "153-206-255" pos = "24,-20!"]; 
+nodo13_10 [label = "153-206-255" pos = "26,-20!"]; 
+nodo14_10 [label = "153-206-255" pos = "28,-20!"]; 
+nodo15_10 [label = "0-77-153" pos = "30,-20!"]; 
+nodo0_11 [label ="fila11" pos = "0,-22!"]; 
+nodo3_11 [label = "0-77-153" pos = "6,-22!"]; 
+nodo4_11 [label = "0-77-152" pos = "8,-22!"]; 
+nodo5_11 [label = "153-206-255" pos = "10,-22!"]; 
+nodo6_11 [label = "153-206-255" pos = "12,-22!"]; 
+nodo7_11 [label = "153-206-255" pos = "14,-22!"]; 
+nodo8_11 [label = "153-206-255" pos = "16,-22!"]; 
+nodo11_11 [label = "153-206-255" pos = "22,-22!"]; 
+nodo12_11 [label = "153-206-255" pos = "24,-22!"]; 
+nodo13_11 [label = "153-206-255" pos = "26,-22!"]; 
+nodo14_11 [label = "153-206-255" pos = "28,-22!"]; 
+nodo15_11 [label = "0-77-153" pos = "30,-22!"]; 
+nodo16_11 [label = "0-77-153" pos = "32,-22!"]; 
+nodo0_12 [label ="fila12" pos = "0,-24!"]; 
+nodo3_12 [label = "0-77-153" pos = "6,-24!"]; 
+nodo4_12 [label = "0-77-153" pos = "8,-24!"]; 
+nodo5_12 [label = "153-206-255" pos = "10,-24!"]; 
+nodo6_12 [label = "255-255-255" pos = "12,-24!"]; 
+nodo7_12 [label = "255-255-255" pos = "14,-24!"]; 
+nodo8_12 [label = "255-255-255" pos = "16,-24!"]; 
+nodo9_12 [label = "255-255-255" pos = "18,-24!"]; 
+nodo10_12 [label = "255-255-255" pos = "20,-24!"]; 
+nodo11_12 [label = "255-255-255" pos = "22,-24!"]; 
+nodo12_12 [label = "255-255-255" pos = "24,-24!"]; 
+nodo13_12 [label = "255-255-255" pos = "26,-24!"]; 
+nodo14_12 [label = "153-206-255" pos = "28,-24!"]; 
+nodo15_12 [label = "0-77-153" pos = "30,-24!"]; 
+nodo16_12 [label = "0-77-153" pos = "32,-24!"]; 
+nodo0_13 [label ="fila13" pos = "0,-26!"]; 
+nodo3_13 [label = "0-77-153" pos = "6,-26!"]; 
+nodo5_13 [label = "255-255-255" pos = "10,-26!"]; 
+nodo6_13 [label = "255-255-255" pos = "12,-26!"]; 
+nodo7_13 [label = "255-255-255" pos = "14,-26!"]; 
+nodo8_13 [label = "255-255-255" pos = "16,-26!"]; 
+nodo9_13 [label = "255-255-255" pos = "18,-26!"]; 
+nodo10_13 [label = "255-255-255" pos = "20,-26!"]; 
+nodo11_13 [label = "255-255-255" pos = "22,-26!"]; 
+nodo12_13 [label = "255-255-255" pos = "24,-26!"]; 
+nodo13_13 [label = "255-255-255" pos = "26,-26!"]; 
+nodo14_13 [label = "255-255-255" pos = "28,-26!"]; 
+nodo16_13 [label = "0-77-153" pos = "32,-26!"]; 
+nodo0_14 [label ="fila14" pos = "0,-28!"]; 
+nodo5_14 [label = "255-255-255" pos = "10,-28!"]; 
+nodo6_14 [label = "255-255-255" pos = "12,-28!"]; 
+nodo7_14 [label = "255-255-255" pos = "14,-28!"]; 
+nodo8_14 [label = "255-255-255" pos = "16,-28!"]; 
+nodo9_14 [label = "255-255-255" pos = "18,-28!"]; 
+nodo10_14 [label = "255-255-255" pos = "20,-28!"]; 
+nodo11_14 [label = "255-255-255" pos = "22,-28!"]; 
+nodo12_14 [label = "255-255-255" pos = "24,-28!"]; 
+nodo13_14 [label = "255-255-255" pos = "26,-28!"]; 
+nodo14_14 [label = "255-255-255" pos = "28,-28!"]; 
+nodo0_15 [label ="fila15" pos = "0,-30!"]; 
+nodo0_16 [label ="fila16" pos = "0,-32!"]; 
+nodo0_17 [label ="fila17" pos = "0,-34!"]; 
+{ rank=same nod000 nod010 nod020 nod030 nod040 nod050 nod060 nod070 nod080 nod090 nod0100 nod0110 nod0120 nod0130 nod0140 nod0150 nod0160 nod0170 nod0180 nod0190  }
+{ rank=same nodo0_1  }
+{ rank=same nodo0_2  }
+{ rank=same nodo0_3 nodo8_3 nodo9_3 nodo10_3 nodo11_3  }
+{ rank=same nodo0_4 nodo6_4 nodo7_4 nodo8_4 nodo9_4 nodo10_4 nodo11_4 nodo12_4 nodo13_4  }
+{ rank=same nodo0_5 nodo5_5 nodo6_5 nodo7_5 nodo8_5 nodo9_5 nodo10_5 nodo11_5 nodo12_5 nodo13_5 nodo14_5  }
+{ rank=same nodo0_6 nodo5_6 nodo6_6 nodo7_6 nodo8_6 nodo9_6 nodo10_6 nodo11_6 nodo12_6 nodo13_6 nodo14_6  }
+{ rank=same nodo0_7 nodo4_7 nodo5_7 nodo6_7 nodo7_7 nodo8_7 nodo9_7 nodo10_7 nodo11_7 nodo12_7 nodo13_7 nodo14_7 nodo15_7  }
+{ rank=same nodo0_8 nodo4_8 nodo5_8 nodo6_8 nodo7_8 nodo11_8 nodo13_8 nodo14_8 nodo15_8  }
+{ rank=same nodo0_9 nodo4_9 nodo5_9 nodo6_9 nodo13_9 nodo14_9 nodo15_9  }
+{ rank=same nodo0_10 nodo4_10 nodo5_10 nodo6_10 nodo7_10 nodo12_10 nodo13_10 nodo14_10 nodo15_10  }
+{ rank=same nodo0_11 nodo3_11 nodo4_11 nodo5_11 nodo6_11 nodo7_11 nodo8_11 nodo11_11 nodo12_11 nodo13_11 nodo14_11 nodo15_11 nodo16_11  }
+{ rank=same nodo0_12 nodo3_12 nodo4_12 nodo5_12 nodo6_12 nodo7_12 nodo8_12 nodo9_12 nodo10_12 nodo11_12 nodo12_12 nodo13_12 nodo14_12 nodo15_12 nodo16_12  }
+{ rank=same nodo0_13 nodo3_13 nodo5_13 nodo6_13 nodo7_13 nodo8_13 nodo9_13 nodo10_13 nodo11_13 nodo12_13 nodo13_13 nodo14_13 nodo16_13  }
+{ rank=same nodo0_14 nodo5_14 nodo6_14 nodo7_14 nodo8_14 nodo9_14 nodo10_14 nodo11_14 nodo12_14 nodo13_14 nodo14_14  }
+{ rank=same nodo0_15  }
+{ rank=same nodo0_16  }
+{ rank=same nodo0_17  }
+nod000->nodo0_1 [dir="both"] 
+nod000->nod010 [dir="both"] 
+nod010->nod020 [dir="both"] 
+nod020->nod030 [dir="both"] 
+nod030->nodo3_11 [dir="both"] 
+nod030->nod040 [dir="both"] 
+nod040->nodo4_7 [dir="both"] 
+nod040->nod050 [dir="both"] 
+nod050->nodo5_5 [dir="both"] 
+nod050->nod060 [dir="both"] 
+nod060->nodo6_4 [dir="both"] 
+nod060->nod070 [dir="both"] 
+nod070->nodo7_4 [dir="both"] 
+nod070->nod080 [dir="both"] 
+nod080->nodo8_3 [dir="both"] 
+nod080->nod090 [dir="both"] 
+nod090->nodo9_3 [dir="both"] 
+nod090->nod0100 [dir="both"] 
+nod0100->nodo10_3 [dir="both"] 
+nod0100->nod0110 [dir="both"] 
+nod0110->nodo11_3 [dir="both"] 
+nod0110->nod0120 [dir="both"] 
+nod0120->nodo12_4 [dir="both"] 
+nod0120->nod0130 [dir="both"] 
+nod0130->nodo13_4 [dir="both"] 
+nod0130->nod0140 [dir="both"] 
+nod0140->nodo14_5 [dir="both"] 
+nod0140->nod0150 [dir="both"] 
+nod0150->nodo15_7 [dir="both"] 
+nod0150->nod0160 [dir="both"] 
+nod0160->nodo16_11 [dir="both"] 
+nod0160->nod0170 [dir="both"] 
+nod0170->nod0180 [dir="both"] 
+nod0180->nod0190 [dir="both"] 
+nodo0_1->nodo0_2 [dir="both"] 
+nodo0_2->nodo0_3 [dir="both"] 
+nodo0_3->nodo0_4 [dir="both"] 
+nodo0_3->nodo8_3 [dir="both"] 
+nodo8_3->nodo8_4 [dir="both"] 
+nodo8_3->nodo9_3 [dir="both"] 
+nodo9_3->nodo9_4 [dir="both"] 
+nodo9_3->nodo10_3 [dir="both"] 
+nodo10_3->nodo10_4 [dir="both"] 
+nodo10_3->nodo11_3 [dir="both"] 
+nodo11_3->nodo11_4 [dir="both"] 
+nodo0_4->nodo0_5 [dir="both"] 
+nodo0_4->nodo6_4 [dir="both"] 
+nodo6_4->nodo6_5 [dir="both"] 
+nodo6_4->nodo7_4 [dir="both"] 
+nodo7_4->nodo7_5 [dir="both"] 
+nodo7_4->nodo8_4 [dir="both"] 
+nodo8_4->nodo8_5 [dir="both"] 
+nodo8_4->nodo9_4 [dir="both"] 
+nodo9_4->nodo9_5 [dir="both"] 
+nodo9_4->nodo10_4 [dir="both"] 
+nodo10_4->nodo10_5 [dir="both"] 
+nodo10_4->nodo11_4 [dir="both"] 
+nodo11_4->nodo11_5 [dir="both"] 
+nodo11_4->nodo12_4 [dir="both"] 
+nodo12_4->nodo12_5 [dir="both"] 
+nodo12_4->nodo13_4 [dir="both"] 
+nodo13_4->nodo13_5 [dir="both"] 
+nodo0_5->nodo0_6 [dir="both"] 
+nodo0_5->nodo5_5 [dir="both"] 
+nodo5_5->nodo5_6 [dir="both"] 
+nodo5_5->nodo6_5 [dir="both"] 
+nodo6_5->nodo6_6 [dir="both"] 
+nodo6_5->nodo7_5 [dir="both"] 
+nodo7_5->nodo7_6 [dir="both"] 
+nodo7_5->nodo8_5 [dir="both"] 
+nodo8_5->nodo8_6 [dir="both"] 
+nodo8_5->nodo9_5 [dir="both"] 
+nodo9_5->nodo9_6 [dir="both"] 
+nodo9_5->nodo10_5 [dir="both"] 
+nodo10_5->nodo10_6 [dir="both"] 
+nodo10_5->nodo11_5 [dir="both"] 
+nodo11_5->nodo11_6 [dir="both"] 
+nodo11_5->nodo12_5 [dir="both"] 
+nodo12_5->nodo12_6 [dir="both"] 
+nodo12_5->nodo13_5 [dir="both"] 
+nodo13_5->nodo13_6 [dir="both"] 
+nodo13_5->nodo14_5 [dir="both"] 
+nodo14_5->nodo14_6 [dir="both"] 
+nodo0_6->nodo0_7 [dir="both"] 
+nodo0_6->nodo5_6 [dir="both"] 
+nodo5_6->nodo5_7 [dir="both"] 
+nodo5_6->nodo6_6 [dir="both"] 
+nodo6_6->nodo6_7 [dir="both"] 
+nodo6_6->nodo7_6 [dir="both"] 
+nodo7_6->nodo7_7 [dir="both"] 
+nodo7_6->nodo8_6 [dir="both"] 
+nodo8_6->nodo8_7 [dir="both"] 
+nodo8_6->nodo9_6 [dir="both"] 
+nodo9_6->nodo9_7 [dir="both"] 
+nodo9_6->nodo10_6 [dir="both"] 
+nodo10_6->nodo10_7 [dir="both"] 
+nodo10_6->nodo11_6 [dir="both"] 
+nodo11_6->nodo11_7 [dir="both"] 
+nodo11_6->nodo12_6 [dir="both"] 
+nodo12_6->nodo12_7 [dir="both"] 
+nodo12_6->nodo13_6 [dir="both"] 
+nodo13_6->nodo13_7 [dir="both"] 
+nodo13_6->nodo14_6 [dir="both"] 
+nodo14_6->nodo14_7 [dir="both"] 
+nodo0_7->nodo0_8 [dir="both"] 
+nodo0_7->nodo4_7 [dir="both"] 
+nodo4_7->nodo4_8 [dir="both"] 
+nodo4_7->nodo5_7 [dir="both"] 
+nodo5_7->nodo5_8 [dir="both"] 
+nodo5_7->nodo6_7 [dir="both"] 
+nodo6_7->nodo6_8 [dir="both"] 
+nodo6_7->nodo7_7 [dir="both"] 
+nodo7_7->nodo7_8 [dir="both"] 
+nodo7_7->nodo8_7 [dir="both"] 
+nodo8_7->nodo8_11 [dir="both"] 
+nodo8_7->nodo9_7 [dir="both"] 
+nodo9_7->nodo9_12 [dir="both"] 
+nodo9_7->nodo10_7 [dir="both"] 
+nodo10_7->nodo10_12 [dir="both"] 
+nodo10_7->nodo11_7 [dir="both"] 
+nodo11_7->nodo11_8 [dir="both"] 
+nodo11_7->nodo12_7 [dir="both"] 
+nodo12_7->nodo12_10 [dir="both"] 
+nodo12_7->nodo13_7 [dir="both"] 
+nodo13_7->nodo13_8 [dir="both"] 
+nodo13_7->nodo14_7 [dir="both"] 
+nodo14_7->nodo14_8 [dir="both"] 
+nodo14_7->nodo15_7 [dir="both"] 
+nodo15_7->nodo15_8 [dir="both"] 
+nodo0_8->nodo0_9 [dir="both"] 
+nodo0_8->nodo4_8 [dir="both"] 
+nodo4_8->nodo4_9 [dir="both"] 
+nodo4_8->nodo5_8 [dir="both"] 
+nodo5_8->nodo5_9 [dir="both"] 
+nodo5_8->nodo6_8 [dir="both"] 
+nodo6_8->nodo6_9 [dir="both"] 
+nodo6_8->nodo7_8 [dir="both"] 
+nodo7_8->nodo7_10 [dir="both"] 
+nodo7_8->nodo11_8 [dir="both"] 
+nodo11_8->nodo11_11 [dir="both"] 
+nodo11_8->nodo13_8 [dir="both"] 
+nodo13_8->nodo13_9 [dir="both"] 
+nodo13_8->nodo14_8 [dir="both"] 
+nodo14_8->nodo14_9 [dir="both"] 
+nodo14_8->nodo15_8 [dir="both"] 
+nodo15_8->nodo15_9 [dir="both"] 
+nodo0_9->nodo0_10 [dir="both"] 
+nodo0_9->nodo4_9 [dir="both"] 
+nodo4_9->nodo4_10 [dir="both"] 
+nodo4_9->nodo5_9 [dir="both"] 
+nodo5_9->nodo5_10 [dir="both"] 
+nodo5_9->nodo6_9 [dir="both"] 
+nodo6_9->nodo6_10 [dir="both"] 
+nodo6_9->nodo13_9 [dir="both"] 
+nodo13_9->nodo13_10 [dir="both"] 
+nodo13_9->nodo14_9 [dir="both"] 
+nodo14_9->nodo14_10 [dir="both"] 
+nodo14_9->nodo15_9 [dir="both"] 
+nodo15_9->nodo15_10 [dir="both"] 
+nodo0_10->nodo0_11 [dir="both"] 
+nodo0_10->nodo4_10 [dir="both"] 
+nodo4_10->nodo4_11 [dir="both"] 
+nodo4_10->nodo5_10 [dir="both"] 
+nodo5_10->nodo5_11 [dir="both"] 
+nodo5_10->nodo6_10 [dir="both"] 
+nodo6_10->nodo6_11 [dir="both"] 
+nodo6_10->nodo7_10 [dir="both"] 
+nodo7_10->nodo7_11 [dir="both"] 
+nodo7_10->nodo12_10 [dir="both"] 
+nodo12_10->nodo12_11 [dir="both"] 
+nodo12_10->nodo13_10 [dir="both"] 
+nodo13_10->nodo13_11 [dir="both"] 
+nodo13_10->nodo14_10 [dir="both"] 
+nodo14_10->nodo14_11 [dir="both"] 
+nodo14_10->nodo15_10 [dir="both"] 
+nodo15_10->nodo15_11 [dir="both"] 
+nodo0_11->nodo0_12 [dir="both"] 
+nodo0_11->nodo3_11 [dir="both"] 
+nodo3_11->nodo3_12 [dir="both"] 
+nodo3_11->nodo4_11 [dir="both"] 
+nodo4_11->nodo4_12 [dir="both"] 
+nodo4_11->nodo5_11 [dir="both"] 
+nodo5_11->nodo5_12 [dir="both"] 
+nodo5_11->nodo6_11 [dir="both"] 
+nodo6_11->nodo6_12 [dir="both"] 
+nodo6_11->nodo7_11 [dir="both"] 
+nodo7_11->nodo7_12 [dir="both"] 
+nodo7_11->nodo8_11 [dir="both"] 
+nodo8_11->nodo8_12 [dir="both"] 
+nodo8_11->nodo11_11 [dir="both"] 
+nodo11_11->nodo11_12 [dir="both"] 
+nodo11_11->nodo12_11 [dir="both"] 
+nodo12_11->nodo12_12 [dir="both"] 
+nodo12_11->nodo13_11 [dir="both"] 
+nodo13_11->nodo13_12 [dir="both"] 
+nodo13_11->nodo14_11 [dir="both"] 
+nodo14_11->nodo14_12 [dir="both"] 
+nodo14_11->nodo15_11 [dir="both"] 
+nodo15_11->nodo15_12 [dir="both"] 
+nodo15_11->nodo16_11 [dir="both"] 
+nodo16_11->nodo16_12 [dir="both"] 
+nodo0_12->nodo0_13 [dir="both"] 
+nodo0_12->nodo3_12 [dir="both"] 
+nodo3_12->nodo3_13 [dir="both"] 
+nodo3_12->nodo4_12 [dir="both"] 
+nodo4_12->nodo5_12 [dir="both"] 
+nodo5_12->nodo5_13 [dir="both"] 
+nodo5_12->nodo6_12 [dir="both"] 
+nodo6_12->nodo6_13 [dir="both"] 
+nodo6_12->nodo7_12 [dir="both"] 
+nodo7_12->nodo7_13 [dir="both"] 
+nodo7_12->nodo8_12 [dir="both"] 
+nodo8_12->nodo8_13 [dir="both"] 
+nodo8_12->nodo9_12 [dir="both"] 
+nodo9_12->nodo9_13 [dir="both"] 
+nodo9_12->nodo10_12 [dir="both"] 
+nodo10_12->nodo10_13 [dir="both"] 
+nodo10_12->nodo11_12 [dir="both"] 
+nodo11_12->nodo11_13 [dir="both"] 
+nodo11_12->nodo12_12 [dir="both"] 
+nodo12_12->nodo12_13 [dir="both"] 
+nodo12_12->nodo13_12 [dir="both"] 
+nodo13_12->nodo13_13 [dir="both"] 
+nodo13_12->nodo14_12 [dir="both"] 
+nodo14_12->nodo14_13 [dir="both"] 
+nodo14_12->nodo15_12 [dir="both"] 
+nodo15_12->nodo16_12 [dir="both"] 
+nodo16_12->nodo16_13 [dir="both"] 
+nodo0_13->nodo0_14 [dir="both"] 
+nodo0_13->nodo3_13 [dir="both"] 
+nodo3_13->nodo5_13 [dir="both"] 
+nodo5_13->nodo5_14 [dir="both"] 
+nodo5_13->nodo6_13 [dir="both"] 
+nodo6_13->nodo6_14 [dir="both"] 
+nodo6_13->nodo7_13 [dir="both"] 
+nodo7_13->nodo7_14 [dir="both"] 
+nodo7_13->nodo8_13 [dir="both"] 
+nodo8_13->nodo8_14 [dir="both"] 
+nodo8_13->nodo9_13 [dir="both"] 
+nodo9_13->nodo9_14 [dir="both"] 
+nodo9_13->nodo10_13 [dir="both"] 
+nodo10_13->nodo10_14 [dir="both"] 
+nodo10_13->nodo11_13 [dir="both"] 
+nodo11_13->nodo11_14 [dir="both"] 
+nodo11_13->nodo12_13 [dir="both"] 
+nodo12_13->nodo12_14 [dir="both"] 
+nodo12_13->nodo13_13 [dir="both"] 
+nodo13_13->nodo13_14 [dir="both"] 
+nodo13_13->nodo14_13 [dir="both"] 
+nodo14_13->nodo14_14 [dir="both"] 
+nodo14_13->nodo16_13 [dir="both"] 
+nodo0_14->nodo0_15 [dir="both"] 
+nodo0_14->nodo5_14 [dir="both"] 
+nodo5_14->nodo6_14 [dir="both"] 
+nodo6_14->nodo7_14 [dir="both"] 
+nodo7_14->nodo8_14 [dir="both"] 
+nodo8_14->nodo9_14 [dir="both"] 
+nodo9_14->nodo10_14 [dir="both"] 
+nodo10_14->nodo11_14 [dir="both"] 
+nodo11_14->nodo12_14 [dir="both"] 
+nodo12_14->nodo13_14 [dir="both"] 
+nodo13_14->nodo14_14 [dir="both"] 
+nodo0_15->nodo0_16 [dir="both"] 
+nodo0_16->nodo0_17 [dir="both"] 
+}
