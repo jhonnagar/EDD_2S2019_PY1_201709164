@@ -16,15 +16,21 @@ public:
 		nodo* izq = NULL;
 	}*nodoptr;	
 	nodoptr root;
+	nodoptr temp;
 	arbol() {
 		root = NULL;
+		temp = NULL;
 	}
 
   
 	bool insert(std::string  data,lista list) {
 		return insert(data, root,list);
 	};
-
+	lista buscar(std::string data) {
+		return
+			
+			busca(data, root);
+	};
 	void inorder() {
 		ofstream archivo;
 		string line;
@@ -119,6 +125,7 @@ public:
 	string graficar() {
 		return grafica(1,root );
 	};
+
 	string in() {
 		return inorder(root);
 	}
@@ -128,5 +135,6 @@ public:
 	string postorder(nodo* actual);
 	string grafica(int nod,nodo* root );
 	string preorder(nodo* actual);
+	lista busca(std::string item, nodo* raiz);
 };
 

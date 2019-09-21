@@ -19,10 +19,12 @@ lista aplicarfiltro(lista mat, std::string filtro, int capai,int x, int y);
  lista expandir(lista list, int x, int y);
  lista mirrory(lista list);
  lista mirrorx(lista list);
+ void seleccionar();
  void pausa();
  string nombre;
  arbol tree;
 lista list;
+lista temp;
 
 int main()
 {
@@ -54,15 +56,14 @@ int main()
 			cin>>nombre;
 			list = llenarlista(nombre);
 			tree.insert(list.cabeza->nombre, list);
-			
 			cout << "agregada";
 			tree.inorder();
 			pausa();
 			break;
 
 		case '2':
-			system("cls");
-			cout << tree.in();
+			seleccionar();
+
 			pausa();
 			break;
 
@@ -521,3 +522,25 @@ lista mirrorx(lista list) {
 
 	return '#' + rs + gs + bs;
 }
+ void seleccionar() {
+	 system("cls");
+	 string espacio = tree.in();
+	 std::istringstream lin(espacio);
+	 string texto="1";
+      
+	 int x = 1;
+	 while (texto != "") {
+		 getline(lin, texto, ';');
+		 cout << "\t"+to_string(x)+"  " +texto+"." << endl;
+		 x = x + 1;
+	 }
+	 cout << "---Elige una opcion----"<<endl;
+	 cin >> x;
+
+	 std::istringstream line(espacio);
+	 for (int i = 0; i < x;i++ ) {
+		 getline(line, texto, ';');
+	 }
+	 temp = tree.buscar(texto);
+	 cout << temp.cabeza->nombre;
+ };

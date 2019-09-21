@@ -1,5 +1,11 @@
 #include "arbol.h"
 #include <iostream>
+#include <string>
+#include<stdlib.h>
+#include<fstream>
+#include <sstream>
+#include <string>
+using namespace std;
 bool arbol::insert(std::string item, nodo* raiz_actual,lista list) {
      	nodoptr n = new nodo();
 		n->nombre = item;
@@ -30,6 +36,37 @@ bool arbol::insert(std::string item, nodo* raiz_actual,lista list) {
 		return false;
 	}
 }
+lista arbol::busca(std::string item, nodo* raiz) {
+
+	if (strstr(raiz->nombre.c_str(), item.c_str())) {
+		return raiz->data;
+	}
+	else if (item < raiz->nombre) {
+		if (raiz->izq == NULL) {
+			lista list;
+			return list;
+		}
+		else {
+			return busca(item, raiz->izq);
+		}
+	}
+	else if (item > raiz->nombre) {
+		if (raiz->der == NULL) {
+			lista list;
+			return list;
+		}
+		else {
+			return busca(item, raiz->der);
+		}
+	}
+	else {
+		lista list;
+		return list;
+	}
+}
+	
+
+
 string arbol::inorder(nodo* root) {
 	string inor="";
 	if (root != NULL) {
