@@ -24,14 +24,16 @@ int main()
 {	
 int m;
 	arbol arbol;
-	arbol.insert("hola");
-	arbol.insert("holas");
-	arbol.insert("mario");
-	arbol.insert("maria");
-	arbol.insert("eduardo");
-	arbol.insert("calamar");
+	arbol.insert("a");
+	arbol.insert("h");
+	arbol.insert("m");
+	arbol.insert("r");
+	arbol.insert("s");
+	arbol.insert("b");
+	arbol.insert("c");
 	arbol.inorder();
 	cout << endl;
+	cout << arbol.graficar()<<endl;
 	arbol.postorder();
 	cout << endl;
 	arbol.preorder();
@@ -39,7 +41,7 @@ int m;
     lista list ;
 	string hola = "hora_de_aventura\\hora_de_aventura.csv";
 	list=llenarlista(hola);
-	list.mostrar();
+
 	lista lista2 =aplicarfiltro(list, "doblemirror", 0,1,1);
 	exportar(lista2);
 	cout << "\t\t\tElija una opcion\n\n";

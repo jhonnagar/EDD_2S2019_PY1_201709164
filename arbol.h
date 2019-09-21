@@ -29,10 +29,14 @@ public:
 	void preorder() {
 		preorder(root);
 	};
+	string graficar() {
+		return grafica(1,root );
+	};
 
 	bool insert(std::string item, nodo* raiz_actual);
 	void inorder(nodo* actual);
 	void postorder(nodo* actual);
+	string grafica(int nod,nodo* root );
 	void preorder(nodo* actual);
 };
 
