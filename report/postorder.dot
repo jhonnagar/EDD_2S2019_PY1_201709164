@@ -1,0 +1,9 @@
+digraph R { 
+node[shape = record];
+h->a
+m->h
+r->m
+s->r
+b->s
+c->b
+;}

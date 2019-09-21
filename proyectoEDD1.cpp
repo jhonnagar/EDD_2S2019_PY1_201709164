@@ -31,13 +31,10 @@ int m;
 	arbol.insert("s");
 	arbol.insert("b");
 	arbol.insert("c");
+	
 	arbol.inorder();
-	cout << endl;
-	cout << arbol.graficar()<<endl;
 	arbol.postorder();
-	cout << endl;
 	arbol.preorder();
-	cout << endl;
     lista list ;
 	string hola = "hora_de_aventura\\hora_de_aventura.csv";
 	list=llenarlista(hola);

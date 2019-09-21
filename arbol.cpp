@@ -29,30 +29,33 @@ bool arbol::insert(std::string item, nodo* raiz_actual) {
 		return false;
 	}
 }
-void arbol::inorder(nodo* root) {
+string arbol::inorder(nodo* root) {
+	string inor="";
 	if (root != NULL) {
-		inorder(root->izq);
-		cout << " " << root->nombre << " ->";
-		inorder(root->der);
+		inor=inor+inorder(root->izq);
+		inor= inor+root->nombre + ";";
+		inor=inor+inorder(root->der);
 	}
+	return inor;
 
 }
-void arbol::preorder(nodo* root) {
+string arbol::preorder(nodo* root) {
+	string inor = "";
 	if (root != NULL) {
-		cout << " " << root->nombre << " ->";
-		preorder(root->izq);
-		preorder(root->der);
+		inor = inor + root->nombre+";";
+		inor = inor + preorder(root->izq);
+		inor = inor + preorder(root->der);
 	}
-
+	return inor;
 }
-void arbol::postorder(nodo* root) {
+string arbol::postorder(nodo* root) {
+	string inor = "";
 	if (root != NULL) {
-		postorder(root->izq);
-		postorder(root->der);
-		cout << " " << root->nombre << " ->";
-
+		inor = inor + postorder(root->izq) ;
+		inor = inor + postorder(root->der) ;
+		inor = inor + root->nombre+";"  ;
 	}
-
+	return inor;
 }
 string arbol::grafica(int nod,nodo* root) {
 	string grafic = " ";

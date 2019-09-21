@@ -1,5 +1,10 @@
 #pragma once
 #include"lista.h"
+#include<stdlib.h>
+#include<iostream>
+#include<fstream>
+#include <sstream>
+#include <string>
 using namespace std;
 class arbol
 {
@@ -21,22 +26,104 @@ public:
 	};
 
 	void inorder() {
-		inorder(root);
+		ofstream archivo;
+		string line;
+		string linea = inorder(root);
+		string texto = "1";
+		string texto1 = " ";
+		std::istringstream lin(linea);
+		archivo.open("report\\inorder.dot", ios::out);
+		archivo << "digraph R { \n";
+		archivo << "node[shape = record];\n";
+		getline(lin, texto1, ';');
+		while (texto != "") {
+			getline(lin, texto, ';');
+			if (texto == "") {
+				texto = "";
+			}
+			else
+			{
+				cout << texto + "-";
+				line = texto1 + "->" + texto + "\n" + line;
+				texto1 = texto;
+			}
+
+
+
+		}
+		archivo << line + ";}";
+		archivo.close();
+		system("dot -Tpng report\\inorder.dot -o report\\inorder.png");
 	};
 	void postorder() {
-		postorder(root);
+		ofstream archivo;
+		string line;
+		string linea=postorder(root);
+		string texto = "1";
+		string texto1 = " ";
+		std::istringstream lin(linea);
+		archivo.open("report\\postorder.dot", ios::out);
+		archivo << "digraph R { \n";
+		archivo << "node[shape = record];\n";
+		getline(lin, texto1, ';');
+		while (texto != "") {
+			getline(lin, texto, ';');
+			if (texto == "") {
+				texto = "";
+			}
+			else
+			{
+                cout << texto+"-";
+				line= texto1 + "->" + texto + "\n"+line;
+				texto1 = texto;
+			}
+			
+				
+		    
+		}
+		archivo << line+";}";
+		archivo.close();
+		system("dot -Tpng report\\postorder.dot -o report\\postorder.png");
+	
 	};
 	void preorder() {
-		preorder(root);
+		ofstream archivo;
+		string line;
+		string linea = preorder(root);
+		string texto = "1";
+		string texto1 = " ";
+		std::istringstream lin(linea);
+		archivo.open("report\\preorder.dot", ios::out);
+		archivo << "digraph R { \n";
+		archivo << "node[shape = record];\n";
+		getline(lin, texto1, ';');
+		while (texto != "") {
+			getline(lin, texto, ';');
+			if (texto == "") {
+				texto = "";
+			}
+			else
+			{
+				cout << texto + "-";
+				line = texto1 + "->" + texto + "\n" + line;
+				texto1 = texto;
+			}
+
+
+
+		}
+		archivo << line + ";}";
+		archivo.close();
+		system("dot -Tpng report\\preorder.dot -o report\\preorder.png");
 	};
 	string graficar() {
 		return grafica(1,root );
 	};
 
 	bool insert(std::string item, nodo* raiz_actual);
-	void inorder(nodo* actual);
-	void postorder(nodo* actual);
+	string inorder(nodo* actual);
+	string postorder(nodo* actual);
 	string grafica(int nod,nodo* root );
-	void preorder(nodo* actual);
+	string preorder(nodo* actual);
 };
 
