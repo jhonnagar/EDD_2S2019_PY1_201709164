@@ -27,6 +27,9 @@
     <ClCompile Include="arbol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="circular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lista.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="arbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circular.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

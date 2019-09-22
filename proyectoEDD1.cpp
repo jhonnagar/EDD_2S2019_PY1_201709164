@@ -5,6 +5,9 @@
 #include"lista.h"
 #include"Matrix.h"
 #include"arbol.h"
+#include"circular.h"
+
+
 #include<stdlib.h>
 #include<fstream>
 #include <sstream>
@@ -21,11 +24,13 @@ lista aplicarfiltro(lista mat, std::string filtro, int capai,int x, int y);
  lista mirrorx(lista list);
  void seleccionar();
  void pausa();
+ void filtros();
+ void exporta();
  string nombre;
  arbol tree;
 lista list;
 lista temp;
-
+circular cicular;
 int main()
 {
 	bool bandera = false;
@@ -42,8 +47,8 @@ int main()
 		cout << "\t2 .- seleccionar imagen" << endl;
 		cout << "\t3 .- aplicar filtros " << endl;
 		cout << "\t4 .- edicion manuel" << endl;
-		cout << "\t6 .- exportar" << endl;
-		cout << "\t7 .- reportes" << endl << endl;
+		cout << "\t5 .- exportar" << endl;
+		cout << "\t6 .- reportes" << endl << endl;
 		cout << "Elije una opcion: ";
         
 		cin >> tecla;
@@ -55,9 +60,13 @@ int main()
 			cout << "ecribir ruta del archivo.\n";
 			cin>>nombre;
 			list = llenarlista(nombre);
+			
 			tree.insert(list.cabeza->nombre, list);
+			cicular.borrar();
+			temp = list;
+			cicular.agregar(list,"original");
 			cout << "agregada";
-			tree.inorder();
+			
 			pausa();
 			break;
 
@@ -69,17 +78,18 @@ int main()
 
 		case '3':
 			system("cls");
-			cout << "Has elejido Multiplicar.\n";
-			pausa();
-			break;
+			filtros();
 
-		case '4':
-			system("cls");
-			cout << "Has elejido Dividir.\n";
 			pausa();
 			break;
 
 		case '5':
+			system("cls");
+			exporta();
+			pausa();
+			break;
+
+		case '6':
 			bandera = true;
 			//exit(1);
 			break;
@@ -527,7 +537,7 @@ lista mirrorx(lista list) {
 	 string espacio = tree.in();
 	 std::istringstream lin(espacio);
 	 string texto="1";
-      
+	 cout << "---ELIGE UNA IMAGEN----" << endl;
 	 int x = 1;
 	 while (texto != "") {
 		 getline(lin, texto, ';');
@@ -542,5 +552,77 @@ lista mirrorx(lista list) {
 		 getline(line, texto, ';');
 	 }
 	 temp = tree.buscar(texto);
-	 cout << temp.cabeza->nombre;
+ };
+ void filtros() {
+	 cout << "\t 1 - Negativo" << endl;
+	 cout << "\t 2 - Blanco y negro" << endl;
+	 cout << "\t 3 - Mirrorx" << endl;
+	 cout << "\t 4 - Mirrory" << endl;
+	 cout << "\t 5 - DobleMirror" << endl;
+	 cout << "\t 6 - Expandir" << endl;
+	 cout << "\t 7 - Mosaico" << endl;
+	 cout << "---elige una opcion---" << endl;
+	 char x;
+	 int y;
+	 int xe;
+	 cin >> x;
+
+	 switch (x)
+	 {
+	 case '1' : 
+		 cout << "---elige una capa---" << endl;
+		 cin >> y;
+		 cicular.agregar(aplicarfiltro(temp,"negativo",y,1,1 ),"negativo");
+
+		 cout << "---filtro agregado ---" << endl;
+		 break;
+	 case '2':
+		 cout << "---elige una capa---" << endl;
+		 cin >> y;
+		 cicular.agregar(aplicarfiltro(temp, "blancoynegro", y, 1, 1), "blancoynegro");
+		 cout << "---filtro agregado ---" << endl;
+		 break;
+	 case '3':
+	
+		 cicular.agregar(aplicarfiltro(temp, "mirrox", 0, 1, 1), "mirrorx");
+		 cout << "---filtro agregado ---" << endl;
+		 break;
+	 case '4':
+
+		 cicular.agregar(aplicarfiltro(temp, "mirroy", 0, 1, 1), "mirrory");
+		 cout << "---filtro agregado ---" << endl;
+		 break;
+	 case '5':
+
+		  cicular.agregar(aplicarfiltro(temp, "doblemirror", 0, 1, 1), "doblemirror");
+		  cout << "---filtro agregado ---" << endl;
+		  break;
+	 case'6':
+		 cout << "---cuando copias en Y ---" << endl;
+		 cin >> y;
+		 cout << "---cuando copias en X ---" << endl;
+		 cin >> xe;
+		 cicular.agregar(aplicarfiltro(temp, "expandido", 0, xe,y ), "expandido");
+		 cout << "---filtro agregado ---" << endl;
+		 break;
+	 }
+	  
+ };
+ void exporta() {
+	 cicular.temp = cicular.cabeza;
+	 cout << "Elige un filtro de  " + temp.cabeza->nombre << endl;
+	 while (cicular.temp->sig != cicular.cabeza) {
+		 cout << to_string(cicular.temp->pos) + " - " + cicular.temp->nombre << endl;
+		 cicular.temp = cicular.temp->sig;
+	 }
+	 cout << to_string(cicular.temp->pos) + " - " + cicular.temp->nombre << endl;
+
+	 int c;
+	 cin >> c;
+	 cout << c;
+	 cicular.temp = cicular.cabeza;
+	 while (cicular.temp->pos != c) {
+		 cicular.temp = cicular.temp->sig;
+	 }
+	 exportar(cicular.temp->data);
  };
