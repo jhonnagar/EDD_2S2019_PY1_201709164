@@ -26,5 +26,8 @@ public:
 	void agregarinicio(Matrix adddata,std::string name);
 	void config(int ancho, int alto, int px, int py, std::string nomb);
 	void mostrar(std::string name);
+	void mostrarlineaf(std::string name);
+	void mostrarlineac(std::string name);
+	
 };
 

@@ -1,9 +1,0 @@
-digraph R { 
-node[shape = record];
-r->s
-m->r
-c->m
-b->c
-h->b
-a->h
-;}

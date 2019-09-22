@@ -36,6 +36,10 @@ circular cicular;
 void mostrarcir();
 int main()
 {
+	list = llenarlista("Ave\\inicial.csv");
+	tree.insert(list.cabeza->nombre, list);
+	list = llenarlista("hora_de_aventura\\hora_de_aventura.csv");
+	tree.insert(list.cabeza->nombre, list);
 	bool bandera = false;
 	char tecla;
 
@@ -65,9 +69,7 @@ int main()
 			list = llenarlista(nombre);
 			
 			tree.insert(list.cabeza->nombre, list);
-			tree.insert("v", list);
-			tree.insert("c", list);
-			tree.insert("d", list);
+		
 			cicular.borrar();
 			temp = list;
 			cicular.agregar(list,"original");
@@ -556,7 +558,9 @@ lista mirrorx(lista list) {
 	 for (int i = 0; i < x;i++ ) {
 		 getline(line, texto, ';');
 	 }
+	 cicular.borrar();
 	 temp = tree.buscar(texto);
+	 cicular.agregar(temp, "original");
  };
  void filtros() {
 	 cout << "\t 1 - Negativo" << endl;
@@ -652,6 +656,8 @@ lista mirrorx(lista list) {
 	 }
 	 temp = tree.buscar(texto);
 	 temp.mostrar(temp.cabeza->nombre);
+	 temp.mostrarlineac(temp.cabeza->nombre);
+	 temp.mostrarlineaf(temp.cabeza->nombre);
  };
  void mostrarcir() {
 	 cout << "reporte de filtros" << endl;

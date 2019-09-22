@@ -1,1 +1,2 @@
-﻿  proyectoEDD1.vcxproj -> C:\Users\popipower2\Desktop\proyectoedd\proyectoEDD1\Debug\proyectoEDD1.exe
+﻿proyectoEDD1.obj : error LNK2019: unresolved external symbol "class lista __cdecl hola(void)" (?hola@@YA?AVlista@@XZ) referenced in function _main
+C:\Users\popipower2\Desktop\proyectoedd\proyectoEDD1\Debug\proyectoEDD1.exe : fatal error LNK1120: 1 unresolved externals
