@@ -1,5 +1,0 @@
-digraph R { 
-node[shape = record];
-a->hora_de_aventura
-Ave->a
-;}

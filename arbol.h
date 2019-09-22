@@ -49,7 +49,6 @@ public:
 			}
 			else
 			{
-				cout << texto + "-";
 				line = texto1 + "->" + texto + "\n" + line;
 				texto1 = texto;
 			}
@@ -64,7 +63,7 @@ public:
 	void postorder() {
 		ofstream archivo;
 		string line;
-		string linea=postorder(root);
+		string linea = postorder(root);
 		string texto = "1";
 		string texto1 = " ";
 		std::istringstream lin(linea);
@@ -79,15 +78,14 @@ public:
 			}
 			else
 			{
-                cout << texto+"-";
-				line= texto1 + "->" + texto + "\n"+line;
+				line = texto1 + "->" + texto + "\n" + line;
 				texto1 = texto;
 			}
-			
-				
-		    
+
+
+
 		}
-		archivo << line+";}";
+		archivo << line + ";}";
 		archivo.close();
 		system("dot -Tpng report\\postorder.dot -o report\\postorder.png");
 	
@@ -110,7 +108,6 @@ public:
 			}
 			else
 			{
-				cout << texto + "-";
 				line = texto1 + "->" + texto + "\n" + line;
 				texto1 = texto;
 			}
@@ -122,8 +119,18 @@ public:
 		archivo.close();
 		system("dot -Tpng report\\preorder.dot -o report\\preorder.png");
 	};
-	string graficar() {
-		return grafica(1,root );
+	void graficar() {
+
+		ofstream archivo;
+		string linea = grafica(1,root );
+		std::istringstream lin(linea);
+		archivo.open("report\\arbol.dot", ios::out);
+		archivo << "digraph grafica{";
+			archivo << "rankdir = TB;";
+			archivo << "node[shape = record, style = filled, fillcolor = seashell2];";
+			archivo << linea + "}";
+			archivo.close();
+			system("dot -Tpng report\\arbol.dot -o report\\arbol.png");
 	};
 
 	string in() {

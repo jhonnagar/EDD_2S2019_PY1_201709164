@@ -19,6 +19,9 @@ public:
 	nodoptr fin;
 	nodoptr temp;
 	void agregar(lista adddata, std::string name);
+	void mostrar();
+
+	void mostrartodo();
 
 };
 

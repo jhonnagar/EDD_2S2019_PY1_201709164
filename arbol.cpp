@@ -91,7 +91,7 @@ string arbol::postorder(nodo* root) {
 	if (root != NULL) {
 		inor = inor + postorder(root->izq) ;
 		inor = inor + postorder(root->der) ;
-		inor = inor +";"+ root->nombre  ;
+		inor = inor + root->nombre+";";
 	}
 	return inor;
 }

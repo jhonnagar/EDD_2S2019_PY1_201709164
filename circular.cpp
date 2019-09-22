@@ -1,4 +1,10 @@
 #include "circular.h"
+#include <iostream>
+#include <string>
+#include<stdlib.h>
+#include<fstream>
+#include <sstream>
+#include <string>
 circular::circular() {
 	cabeza = NULL;
 	fin = NULL;
@@ -31,3 +37,35 @@ void circular::agregar(lista adddata, std::string name) {
 	}
 
 }
+void circular::mostrar() {
+	ofstream archivo;
+	string line;
+	archivo.open("report\\circular.dot", ios::out);
+	archivo << "digraph R { \n";
+	archivo << "node[shape = record];\n";
+	temp = cabeza;
+	line = line + temp->nombre+to_string(temp->pos) + "->" + temp->sig->nombre + "\n";
+	line = line + temp->nombre + to_string(temp->pos) + "->" + temp->ant->nombre + "\n";
+	temp = temp->sig;
+
+	while (temp!=cabeza && temp!=NULL) {
+		line = line + temp->nombre + to_string(temp->pos) +"->"+temp->sig->nombre+"\n";
+		line = line + temp->nombre + to_string(temp->pos) + "->" + temp->ant->nombre + "\n";
+		temp = temp->sig;
+	}
+	archivo << line + ";}";
+	archivo.close();
+	system("dot -Tpng report\\circular.dot -o report\\circular.png");
+
+};
+void circular::mostrartodo() {
+	temp = cabeza;
+	temp->data.mostrar(temp->nombre + to_string(temp->pos));
+	temp = temp->sig;
+
+	while (temp != cabeza && temp != NULL) {
+		temp->data.mostrar(temp->nombre + to_string(temp->pos));
+		temp = temp->sig;
+	}
+
+};

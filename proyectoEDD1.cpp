@@ -26,11 +26,14 @@ lista aplicarfiltro(lista mat, std::string filtro, int capai,int x, int y);
  void pausa();
  void filtros();
  void exporta();
+ void reportes();
+ void graficaseleccion();
  string nombre;
  arbol tree;
 lista list;
 lista temp;
 circular cicular;
+void mostrarcir();
 int main()
 {
 	bool bandera = false;
@@ -42,7 +45,7 @@ int main()
 		system("cls");
 		cin.clear();
 		cout << "________PHOTGEN++_______" << endl;
-		cout << "-----------" << endl << endl;
+		cout << "------------------------" << endl << endl;
 		cout << "\t1 .- insertar imagen" << endl;
 		cout << "\t2 .- seleccionar imagen" << endl;
 		cout << "\t3 .- aplicar filtros " << endl;
@@ -62,6 +65,9 @@ int main()
 			list = llenarlista(nombre);
 			
 			tree.insert(list.cabeza->nombre, list);
+			tree.insert("v", list);
+			tree.insert("c", list);
+			tree.insert("d", list);
 			cicular.borrar();
 			temp = list;
 			cicular.agregar(list,"original");
@@ -90,8 +96,7 @@ int main()
 			break;
 
 		case '6':
-			bandera = true;
-			//exit(1);
+			reportes();
 			break;
 
 		default:
@@ -584,12 +589,12 @@ lista mirrorx(lista list) {
 		 break;
 	 case '3':
 	
-		 cicular.agregar(aplicarfiltro(temp, "mirrox", 0, 1, 1), "mirrorx");
+		 cicular.agregar(aplicarfiltro(temp, "mirrorx", 0, 1, 1), "mirrorx");
 		 cout << "---filtro agregado ---" << endl;
 		 break;
 	 case '4':
 
-		 cicular.agregar(aplicarfiltro(temp, "mirroy", 0, 1, 1), "mirrory");
+		 cicular.agregar(aplicarfiltro(temp, "mirrory", 0, 1, 1), "mirrory");
 		 cout << "---filtro agregado ---" << endl;
 		 break;
 	 case '5':
@@ -625,4 +630,95 @@ lista mirrorx(lista list) {
 		 cicular.temp = cicular.temp->sig;
 	 }
 	 exportar(cicular.temp->data);
+ };
+ void graficaseleccion() {
+	 system("cls");
+	 string espacio = tree.in();
+	 std::istringstream lin(espacio);
+	 string texto = "1";
+	 cout << "---ELIGE UNA IMAGEN PARA GRAFICAR----" << endl;
+	 int x = 1;
+	 while (texto != "") {
+		 getline(lin, texto, ';');
+		 cout << "\t" + to_string(x) + "  " + texto + "." << endl;
+		 x = x + 1;
+	 }
+	 cout << "---Elige una opcion----" << endl;
+	 cin >> x;
+
+	 std::istringstream line(espacio);
+	 for (int i = 0; i < x; i++) {
+		 getline(line, texto, ';');
+	 }
+	 temp = tree.buscar(texto);
+	 temp.mostrar(temp.cabeza->nombre);
+ };
+ void mostrarcir() {
+	 cout << "reporte de filtros" << endl;
+	 cout << "------------------" << endl;
+	 cout << " 1 repote de la lista de filtros" << endl;
+	 cout << " 2 reporte de todos filtros" << endl;
+	 cout << " 3 reporte individual de filtros" << endl;
+
+	 cout << "eligir una opcion" << endl;
+	 char c;
+	 cin >> c;
+
+	 switch (c)
+	 {
+	 case'1':
+		 cicular.mostrar();
+		 break;
+	 case '2':
+		 cicular.mostrartodo();
+		 break;
+	 case '3':
+	 cicular.temp = cicular.cabeza;
+	 cout << "Elige un filtro de  " + temp.cabeza->nombre +"para mostrar su reporte" << endl;
+	 while (cicular.temp->sig != cicular.cabeza) {
+		 cout << to_string(cicular.temp->pos) + " - " + cicular.temp->nombre << endl;
+		 cicular.temp = cicular.temp->sig;
+	 }
+	 cout << to_string(cicular.temp->pos) + " - " + cicular.temp->nombre << endl;
+
+	 int c;
+	 cin >> c;
+	 cout << c;
+	 cicular.temp = cicular.cabeza;
+	 while (cicular.temp->pos != c) {
+		 cicular.temp = cicular.temp->sig;
+	 }
+	 cicular.temp->data.mostrar(cicular.temp->nombre);
+		 break;
+	 default:
+		 
+		 break;
+	 }
+ };
+ void reportes() {
+	 cout << "seleccionar un reporte" << endl;
+	 cout << "-1-reporte de arbol" << endl;
+	 cout << "-2-reporte lista de filtros" << endl;
+	 cout << "-3-reporte de imagenes" << endl;
+
+	 char x;
+	 cin>> x;
+	 switch (x)
+	 {
+	 case'1':
+		 tree.inorder();
+		 tree.preorder();
+		 tree.postorder();
+		 tree.graficar();
+		 cout << "Reportes del arbol generados en carpeta report " << endl;
+		 break;
+	 case'2': 
+
+		 mostrarcir();
+		 break;
+	 case'3':
+		  graficaseleccion();
+	 default:
+		 break;
+	 }
  };
